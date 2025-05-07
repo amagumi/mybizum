@@ -1,0 +1,23 @@
+hasheo de contraseña
+pagina de transaccion
+añadir balance tabla users
+
+
+carpetas mybizum y ws.mybizum, si
+cambiar en wsbizum class por security(estaba asi antes)
+todo pasa por el ws.php
+en utils esta
+
+la clase ajax es para las peticiones al servidor
+
+manu ha hecho un archivo js para cada peticion al servidor usando la clase ajax, por ejemplo login.js tiene dentro sus elementos mas su peticion al servidor con la clase ajax
+
+consola en fuentes se ve las peticiones y las clases que usa
+
+
+ajax = new clsajax (httpwsmybizum.com:8080/com/ws.php)
+
+definir estructura del xml
+
+
+faltan todas las llamadas al server mediante ajax

@@ -1,0 +1,298 @@
+{
+  "ftp://alba@localhost:21": {
+    "mybizum.com": {},
+    "ws.mybizum.com": {},
+    "var": {
+      "backups": {},
+      "cache": {},
+      "lib": {},
+      "local": {},
+      "lock": {
+        "type": "l",
+        "size": 9,
+        "lmtime": 0,
+        "modified": false
+      },
+      "log": {},
+      "mail": {},
+      "opt": {},
+      "run": {
+        "type": "l",
+        "size": 4,
+        "lmtime": 0,
+        "modified": false
+      },
+      "spool": {},
+      "tmp": {},
+      "www": {
+        "mybizum.com": {
+          "com": {
+            "clsAjax.js": {
+              "type": "-",
+              "size": 1603,
+              "lmtime": 1746632401027.0176,
+              "modified": false
+            }
+          },
+          "css": {
+            "styles.css": {
+              "type": "-",
+              "size": 1326,
+              "lmtime": 1742238096931.5486,
+              "modified": false
+            }
+          },
+          "index.html": {
+            "type": "-",
+            "size": 655,
+            "lmtime": 1746608903946.329,
+            "modified": false
+          },
+          "index.php": {
+            "type": "-",
+            "size": 20,
+            "lmtime": 0,
+            "modified": false
+          },
+          "js": {
+            "passwordValidator.js": {
+              "type": "-",
+              "size": 1530,
+              "lmtime": 1742238096970.0525,
+              "modified": false
+            }
+          },
+          "pages": {
+            "balance.php": {
+              "type": "-",
+              "size": 777,
+              "lmtime": 1746632714534.3843,
+              "modified": false
+            },
+            "bizum.php": {
+              "type": "-",
+              "size": 777,
+              "lmtime": 1746632722758.615,
+              "modified": false
+            },
+            "changepassword.php": {
+              "type": "-",
+              "size": 1111,
+              "lmtime": 1746610952423.8354,
+              "modified": false
+            },
+            "currency.php": {
+              "type": "-",
+              "size": 922,
+              "lmtime": 0,
+              "modified": false
+            },
+            "error.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "indexlogged.php": {
+              "type": "-",
+              "size": 1240,
+              "lmtime": 0,
+              "modified": false
+            },
+            "login.php": {
+              "type": "-",
+              "size": 1068,
+              "lmtime": 1746612266339.5264,
+              "modified": false
+            },
+            "logout.php": {
+              "type": "-",
+              "size": 603,
+              "lmtime": 1746610702262.8938,
+              "modified": false
+            },
+            "mainmenu copy.php": {
+              "type": "-",
+              "size": 923,
+              "lmtime": 0,
+              "modified": false
+            },
+            "mainmenu.php": {
+              "type": "-",
+              "size": 759,
+              "lmtime": 1746629755694.2332,
+              "modified": false
+            },
+            "recover.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "register.php": {
+              "type": "-",
+              "size": 1579,
+              "lmtime": 1746609073082.1887,
+              "modified": false
+            },
+            "useroptions copy.php": {
+              "type": "-",
+              "size": 1243,
+              "lmtime": 0,
+              "modified": false
+            },
+            "useroptions.php": {
+              "type": "-",
+              "size": 972,
+              "lmtime": 1746612508159.418,
+              "modified": false
+            },
+            "validateaccount.php": {
+              "type": "-",
+              "size": 914,
+              "lmtime": 1746610710068.2583,
+              "modified": false
+            },
+            "validateaccountresult.php": {
+              "type": "-",
+              "size": 626,
+              "lmtime": 1746612266338.5,
+              "modified": false
+            }
+          },
+          "rscs": {
+            "imgs": {}
+          },
+          "start.php": {
+            "type": "-",
+            "size": 550,
+            "lmtime": 1746632623112.546,
+            "modified": false
+          },
+          "test.html": {
+            "type": "-",
+            "size": 0,
+            "lmtime": 0,
+            "modified": false
+          }
+        },
+        "ws.mybizum.com": {
+          "Nuevo Documento de texto.txt": {
+            "type": "-",
+            "size": 0,
+            "lmtime": 0,
+            "modified": false
+          },
+          "com": {
+            "bizum": {
+              "clsBizum.php": {
+                "type": "-",
+                "size": 0,
+                "lmtime": 1746631073965.687,
+                "modified": false
+              }
+            },
+            "class": {},
+            "dao": {},
+            "security": {
+              "UserManager.php": {
+                "type": "-",
+                "size": 5679,
+                "lmtime": 1746632548123.6345,
+                "modified": false
+              },
+              "block.php": {
+                "type": "-",
+                "size": 1045,
+                "lmtime": 0,
+                "modified": false
+              },
+              "blockchain.php": {
+                "type": "-",
+                "size": 1255,
+                "lmtime": 0,
+                "modified": false
+              },
+              "transaction.php": {
+                "type": "-",
+                "size": 470,
+                "lmtime": 0,
+                "modified": false
+              }
+            },
+            "utils": {
+              "blockchain": {
+                "block.php": {
+                  "type": "-",
+                  "size": 1045,
+                  "lmtime": 1743606386743.5435,
+                  "modified": false
+                },
+                "blockchain.php": {
+                  "type": "-",
+                  "size": 1255,
+                  "lmtime": 1743606011792.709,
+                  "modified": false
+                },
+                "transaction.php": {
+                  "type": "-",
+                  "size": 470,
+                  "lmtime": 1743011936759.2183,
+                  "modified": false
+                }
+              },
+              "dao": {
+                "DBCommand.php": {
+                  "type": "-",
+                  "size": 1493,
+                  "lmtime": 1742238097267.8699,
+                  "modified": false
+                },
+                "DBManager.php": {
+                  "type": "-",
+                  "size": 981,
+                  "lmtime": 1742912716570.635,
+                  "modified": false
+                },
+                "connectDB.php": {
+                  "type": "-",
+                  "size": 938,
+                  "lmtime": 1743005183205.0283,
+                  "modified": false
+                }
+              },
+              "mailtools": {
+                "mail_sender.php": {
+                  "type": "-",
+                  "size": 964,
+                  "lmtime": 1742238097372.4297,
+                  "modified": false
+                }
+              }
+            },
+            "ws.php": {
+              "type": "-",
+              "size": 4529,
+              "lmtime": 0,
+              "modified": false
+            }
+          },
+          "index.html": {
+            "type": "-",
+            "size": 245,
+            "lmtime": 0,
+            "modified": false
+          },
+          "mybizum.com": {},
+          "ws.php": {
+            "type": "-",
+            "size": 4562,
+            "lmtime": 1746631927098.8535,
+            "modified": false
+          }
+        }
+      }
+    }
+  },
+  "$version": 1
+}
