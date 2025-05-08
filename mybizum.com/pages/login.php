@@ -20,7 +20,7 @@ session_start();
 
 <div class="container">
     <h2>Login</h2>
-    <form action="../../ws.mybizum.com/ws.php" method="GET"> 
+    <form action="action" method="GET" id="loginform"> 
 <!-- llamada por ajax -->
         <input type="hidden" name="action" value="login">
         
@@ -38,5 +38,7 @@ session_start();
     </form>
 </div>
 
+<script src="../js/login.js"></script>
+<script src="../com/clsAjax.js"></script>
 </body>
 </html>

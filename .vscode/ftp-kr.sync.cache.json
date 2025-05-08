@@ -1,28 +1,4 @@
 {
-  "ftp://alba@127.0.0.4:21": {
-    "mybizum.com": {},
-    "mybizum_0705.sql": {
-      "type": "-",
-      "size": 41485,
-      "lmtime": 0,
-      "modified": false
-    },
-    "tasks.txt": {
-      "type": "-",
-      "size": 648,
-      "lmtime": 0,
-      "modified": false
-    },
-    "ws.mybizum.com": {},
-    "xml.txt": {
-      "type": "-",
-      "size": 834,
-      "lmtime": 0,
-      "modified": false
-    },
-    "var": {
-      "www": {}
-    }
-  },
+  "ftp://alba@127.0.0.1:21:21": {},
   "$version": 1
 }

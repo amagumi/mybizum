@@ -1,0 +1,19 @@
+USE PP_DDBB;
+GO
+
+CREATE OR ALTER FUNCTION fn_user_state 
+(
+    @USERNAME NVARCHAR(25)
+)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @userState INT;
+
+    SELECT @userState = CASE WHEN u.STATUS = 1 THEN 1 ELSE 0 END
+    FROM USERS u
+    WHERE u.USERNAME = @USERNAME;
+
+    RETURN @userState;
+END;
+GO

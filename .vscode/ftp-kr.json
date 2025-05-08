@@ -1,13 +1,13 @@
 {
     "name": "localhost",
-    "host": "127.0.0.4",
+    "host": "127.0.0.1",
     "username": "alba",
     "password": "123",
     "remotePath": "/",
     "protocol": "ftp",
     "port": 21,
     "fileNameEncoding": "utf8",
-    "autoUpload": false,
+    "autoUpload": true,
     "autoDelete": false,
     "autoDownload": false,
     "ignore": [
