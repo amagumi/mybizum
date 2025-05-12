@@ -21,8 +21,7 @@ session_start();
 <div class="container">
     <h2>Login</h2>
     <form action="action" method="GET" id="loginform"> 
-<!-- llamada por ajax -->
-        <input type="hidden" name="action" value="login">
+        <input type="hidden" id="action" name="action" value="login">
         
         <div class="form-group">
             <label for="username">Username</label>
@@ -37,6 +36,7 @@ session_start();
         <button type="submit" value="login">Log In</button>
     </form>
 </div>
+
 
 <script src="../js/login.js"></script>
 <script src="../com/clsAjax.js"></script>

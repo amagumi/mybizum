@@ -1,21 +1,21 @@
-document.getElementById("loginform").addEventListener("submit", function (event) {
+document.getElementById("registerform").addEventListener("submit", function (event) {
     event.preventDefault(); 
     let action = document.getElementById("action").value;
     let username = document.getElementById("username").value;
+    let name = document.getElementById("name").value;
+    let lastname = document.getElementById("lastname").value;
     let password = document.getElementById("password").value;
-    login(action, username, password);
+    let email = document.getElementById("email").value;
+    
+    login(action, username, name, lastname, password, email);
 });
 
-function login(action, username, password) {
-    // Crear la URL para la solicitud AJAX
-    let url = "http://ws.mybizum.com:8080/ws.php?action=" + action + '&username=' + username + '&password=' + password;
-
-    // Crear un nuevo objeto AJAX (asegúrate de que clsAjax esté bien configurado)
+function login(action, username, name, lastname, password, email) {
+    let url = "http://ws.mybizum.com:8080/ws.php?action=" + action + '&username=' + username + '&name=' + name + '&lastname=' + lastname + '&password=' + password + '&email=' + email;
     AJAX = new clsAjax(url, null);
 
     // Añadir un listener para el evento que se dispara cuando la respuesta es recibida
     document.addEventListener('__CALL_RETURNED__', function() {
-        // Esta función se ejecuta cuando se recibe la respuesta del servidor
         let response = AJAX.xml;  // Aquí deberías tener el XML que devuelve el servidor
 
         // Mostrar la respuesta completa en la consola para depuración
@@ -24,6 +24,12 @@ function login(action, username, password) {
         // Parsear el XML de la respuesta
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(response, "text/xml");
+
+
+
+
+
+
 
         // Verifica que el nodo 'num_error' exista antes de acceder a él
         let numErrorElement = xmlDoc.getElementsByTagName("num_error")[0];

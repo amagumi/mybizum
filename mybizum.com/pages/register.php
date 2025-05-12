@@ -13,9 +13,8 @@
 
 <div class="container">
     <h2>Registration Form</h2>
-    <form action="../../ws.mybizum.com/ws.php" method="GET">
-        <!-- llamada por ajax -->
-        <input type="hidden" name="action" value="register">
+    <form action="action" method="GET" id="registerform">
+        <input type="hidden" id="action" name="action" value="register">
         
         <div class="form-group">
             <label for="username">Username</label>
@@ -35,7 +34,7 @@
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
-            <small id="passwordFeedback" class="feedback"></small> <!-- Aquí se mostrará el mensaje -->
+            <small id="passwordFeedback" class="feedback"></small> 
         </div>
 
         <div class="form-group">
@@ -43,9 +42,11 @@
             <input type="email" id="email" name="email" required>
         </div>
 
-        <button type="submit" value="register">Sign Up</button>
+        <button type="submit" value="register">Register</button>
     </form>
 </div>
 
+<script src="../js/register.js"></script>
+<script src="../com/clsAjax.js"></script>
 </body>
 </html>

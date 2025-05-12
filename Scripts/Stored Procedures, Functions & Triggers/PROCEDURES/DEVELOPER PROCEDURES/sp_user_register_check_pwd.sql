@@ -6,7 +6,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[sp_user_register_check_pwd](@PASSWORD NVARCHAR(100))
+CREATE OR ALTER PROCEDURE [dbo].[sp_user_register_check_pwd](@PASSWORD NVARCHAR(100))
 AS
 BEGIN
     DECLARE @ret INT = 0;

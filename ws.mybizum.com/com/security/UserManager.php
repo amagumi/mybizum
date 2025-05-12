@@ -26,8 +26,7 @@ class UserManager {
                 
                 // Llamada a la función para enviar el correo
                 $resultado = enviarCorreo($url, $destinatario, $asunto, $cuerpo, $adjunto);
-
-                // Establecer el encabezado para XML
+                
                 header('Content-Type: text/xml');
 
                 // Mostrar la respuesta XML
@@ -152,6 +151,20 @@ class UserManager {
         }
     }
     
+    public function url()
+    {
+        // Obtener el protocolo
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+
+        // Obtener el host y la URI de la solicitud
+        $host = $_SERVER['HTTP_HOST'];
+        $requestUri = $_SERVER['REQUEST_URI'];
+
+        // Concatenar todo para obtener la URL completa
+        $url = $protocol . '://' . $host . $requestUri;
+
+        return $url;
+    }
     
 }
 

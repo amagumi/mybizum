@@ -11,10 +11,11 @@ class Transaction
         $this->receiver = $receiver;
         $this->amount = $amount;
     }
-
+    
     public function save($index){
         global $DBcommand;
         $DBcommand->execute('AddTransaction', array($this->sender, $this->receiver, $this->amount, $index));
+        echo "resultado de transaccion: " . $this->sender, $this->receiver, $this->amount, $index . "<br>";
     }
 }
 

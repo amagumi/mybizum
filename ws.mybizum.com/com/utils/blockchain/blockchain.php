@@ -21,6 +21,8 @@ class Blockchain {
         $this->chain[] = $newBlock;
     }
 
+    
+
     public function isChainValid() {
         for ($i = 1; $i < count($this->chain); $i++) {
             $currentBlock = $this->chain[$i];
