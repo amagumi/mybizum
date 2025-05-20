@@ -33,9 +33,9 @@ require_once 'com/utils/dao/DBManager.php';
 require_once 'com/utils/mailtools/mail_sender.php';
 require_once 'com/security/UserManager.php';
 require_once 'com/bizum/clsBizum.php';
-require_once 'com/utils/blockchain/block.php';
-require_once 'com/utils/blockchain/blockchain.php';
-require_once 'com/utils/blockchain/transaction.php';
+// require_once 'com/utils/blockchain/block.php';
+// require_once 'com/utils/blockchain/blockchain.php';
+// require_once 'com/utils/blockchain/transaction.php';
 
 
 $connection = new DBConnection('172.17.0.4,1433', 'PP_DDBB', 'SA', '<Alba123>');
@@ -44,6 +44,7 @@ $dbCommand = new DBCommand($pdoObject);
 $userManager = new UserManager($dbCommand);
 $dbManager = new DBManager($dbCommand);
 $bizum = new bizum($dbCommand);
+$myBlockchain = new Blockchain();
 
 
 // switch global de acciones y solicitudes
@@ -94,11 +95,15 @@ if (empty($action)) {
             break;
         case "accvalidate":
             $userManager->accountValidate($_GET['username'], $_GET['code']);
+            break;
         case "listusers":
             $userManager->listusers($_GET['ssid']);
+            break;
         case "checkpwd":
             $userManager->checkpwd($_GET['password']);       
             break;
+        case "sendbizum":
+            $bizum->sendBizum($_GET['sender'], $_GET['receiver'], $_GET['amount'], $_GET['pdoObject']);    
 
         default:
             echo "Acción no válida.";

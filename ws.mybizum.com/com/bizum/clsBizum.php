@@ -2,133 +2,138 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+// require_once 'com/utils/blockchain/block.php';
+// require_once 'com/utils/blockchain/blockchain.php';
+// require_once 'com/utils/blockchain/transaction.php';
+// require_once 'com/db/DBCommand.php';
 
-
-// AGREGAR LAS RUTAR DEL BLOCKCHAINNNNN VAOS POR AQUI
 class bizum
 {
-    private $dbCommand;
+    private $DBCommand;
 
-
-    public function __construct($dbCommand)
+    public function __construct($DBCommand)
     {
-        $this->dbCommand = $dbCommand;
+        $this->DBCommand = $DBCommand;
 
     }
 
-    public function getBalance($username,$action){
-        try {
-            $result = $this->dbCommand->execute('Get_Balance', array($username,$this->url(),$action));
-            // Establecer el encabezado para XML
-            header('Content-Type: text/xml');
-            echo $result;
+    // public function getBalance($username,$action){
+    //     try {
+    //         $result = $this->dbCommand->execute('Get_Balance', array($username,$this->url(),$action));
+    //         // Establecer el encabezado para XML
+    //         header('Content-Type: text/xml');
+    //         echo $result;
 
-        }catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }  
-    }
+    //     }catch (PDOException $e) {
+    //         echo 'Error: ' . $e->getMessage();
+    //     }  
+    // }
 
-    public function sendBizum($sender,$reciever,$amount,$pdoObject,$action){
-       
-        if ($amount <= 0){
-            //no ejecutará el bizum por ser  menor a 0 desde la procedure sp_wdev_create_bizzum
-            $this->__executeBizum($sender, $reciever, $amount,$action);
-            return;
+    public function sendBizum($sender, $receiver, $amount) {
+        if ($amount > 0) {
+
+            $xmlResponse = $this->checkSenderBalance($sender, $amount);
+
+            $xml = simplexml_load_string($xmlResponse);
+            if ($xml === false) {
+                // Manejo de error si XML no se carga correctamente
+                header('Content-Type: text/plain');
+                echo "Error al procesar la respuesta XML.";
+                exit;
+            }
+
+            $errorCode = (int)$xml->head->errors->error->num_error;
+
+            if ($errorCode === 0) {
+                // Balance suficiente
+                echo "balance suficiente";
+                // $this->__executeTransaction($sender, $receiver, $amount);
+            } else {
+                echo "balance insuficiente o error";
+                // Balance insuficiente o error
+                header('Content-Type: text/xml');
+                echo $xmlResponse;
+            }
+
+            exit;
+        } else {
+            // Cantidad no válida
+            echo "no se pueeee";
+            // $this->__executeBizum($sender, $receiver, $amount); // En tu lógica actual, si es <= 0 lo ejecutas igual
         }
-        
-        $xmlResponse = $this->checkAmountSender($sender, $amount,$action);
-     
-         // Carga y lee el XML
-        $xml = simplexml_load_string($xmlResponse);
-        $errorCode = (int)$xml->head->errors->error->num_error;
-      
-        if ($errorCode === 0){
-            //Balance ok
-           
-           $this->__executeTransaction($sender, $reciever, $amount,$pdoObject,$action);
-           exit; 
-           
-        }else{//Balance insuficiente
-            
-            header('Content-Type: text/xml');
-            echo $xmlResponse;
-            exit;            
-        }
-  
     }
 
-    public function checkAmountSender($sender,$amount,$action){
-        $result = $this->dbCommand->execute('CheckAmount', array($sender,$amount,$this->url(),$action));
-        
+
+    public function checkSenderBalance($sender, $amount){
+        $result = $this->DBCommand->execute('sp_check_balance', array($sender, $amount));
         return $result;
     }
 
-    private function __executeTransaction($sender, $reciever, $amount,$pdoObject,$action){
+
+    // private function __executeTransaction($sender, $receiver, $amount){
        
-        $myBlockchain = new Blockchain($this->dbCommand,$pdoObject);
-        
-        $transaction1 = new Transaction($this->dbCommand,$sender, $reciever, $amount,$this->url(),$action);
+    //     $myBlockchain = new Blockchain();
+    //     $lastblock = Block::read();
+    //     $transaction = new Transaction($sender, $receiver, $amount);
      
-        $latestIndex= $myBlockchain->getLatestBlock()->index;
-        $newBlockId = $latestIndex + 1;
+    //     $block = new Block($lastblock+1, date("Y-m-d H:i:s"), [$transaction], '');
 
-        $block = new Block($this->dbCommand,$newBlockId, null, [$transaction1]);
-        
-        $myBlockchain->addBlock($block);
-        
-        //////////////// $myBlockchain->addTransaction($transaction1,$newBlockId);
+    //     $myBlockchain->addBlock($block);
+    //     $myBlockchain->save();
        
-        if ($myBlockchain->isChainValid()) {
-            //echo "La cadena es correcta! ";
+    //     if ($myBlockchain->isChainValid()) {
+    //         echo "La cadena es correcta! ";
             
-            $this->__executeBizum($sender, $reciever, $amount,$action);
+    //         $this->__executeBizum($sender, $receiver, $amount);
             
-            return;
-        } else {
-            //echo "la cadena NO es correcta!";
-        }
+    //         return;
+    //     } else {
+    //         echo "la cadena NO es correcta!";
+    //     }
 
-    }
+    // }
     
-    private function __executeBizum($sender, $reciever, $amount,$action){
+
+    // private function __executeBizum($sender, $receiver, $amount){
      
-        $result = $this->dbCommand->execute('sp_wdev_create_bizzum', array($sender,$reciever,$amount,$this->url(),$action));
-       
-        
-        header('Content-Type: text/xml');
-        echo $result;
-        exit;
-    
-    }
+    //     $result = $this->DBCommand->execute('sp_create_bizum', array($sender, $receiver, $amount));
 
-    public function viewTransaction($sender,$action){
+    //     header('Content-Type: text/xml');
+    //     echo $result;
+    //     exit;
+    
+    // }
+
+
+    // public function viewTransaction($sender,$action){
         
-        $result = $this->dbCommand->execute('ViewUserTransactions', array($sender,$this->url(),$action));
+    //     $result = $this->dbCommand->execute('ViewUserTransactions', array($sender,$this->url(),$action));
       
-        header('Content-Type: text/xml');
-        echo $result;
+    //     header('Content-Type: text/xml');
+    //     echo $result;
        
-    }
+    // }
 
-    public function url()
-    {
-    // Obtener el protocolo
-    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+    // public function url()
+    // {
+    // // Obtener el protocolo
+    // $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
     
-    // Obtener el host y la URI de la solicitud
-    $host = $_SERVER['HTTP_HOST'];
-    $requestUri = $_SERVER['REQUEST_URI'];
+    // // Obtener el host y la URI de la solicitud
+    // $host = $_SERVER['HTTP_HOST'];
+    // $requestUri = $_SERVER['REQUEST_URI'];
 
-    // Concatenar todo para obtener la URL completa
-    $url = $protocol . '://' . $host . $requestUri;
+    // // Concatenar todo para obtener la URL completa
+    // $url = $protocol . '://' . $host . $requestUri;
 
-    return $url;
-    }
+    // return $url;
+    // }
 
-    public function method(){
-        $method = $_SERVER['REQUEST_METHOD'];
-        return $method;
-    }
+    // public function method(){
+    //     $method = $_SERVER['REQUEST_METHOD'];
+    //     return $method;
+    // }
 
  
 }
+?>

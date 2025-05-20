@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,13 +9,47 @@ session_start();
 </head>
 <body>
 
-<div> <p style="text-align: center"> Welcome, <?php echo $_SESSION['username']; ?></p> 
 <div class="container">
-    <div class="button-container-vertical">
-        <button onclick="window.location.href=''">enviar dinero</button>
-        <button onclick="window.location.href=''">historial</button>
+    <h2>Send Bizum</h2>
+    <form action="action" id="bizumform"> 
+        <input type="hidden" id="action" name="action" value="sendbizum">
+        
+        <div style="display: flex; flex-direction: row">
+             <div class="form-group">
+                <label for="receiver">receiver</label>
+                <input type="text" id="receiver" name="receiver" required>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">amount</label>
+                <input type="amount" id="amount" name="amount" required>
+            </div>
+        </div>
+       
+
+        <button type="submit" value="send bizum">send bizum</button>
+    </form>
+
+    <div class="container">
+        <div class="button-container-vertical">
+            <button onclick="window.location.href=''">historial</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="button-container-vertical">
+    <p> lista de contactos </p>
+        <select>holas
+            <option value ='1'>1</option>
+            <option value ='2'>2</option>
+            <option value ='3'>3</option>
+        </select>
+        </div>
     </div>
 </div>
+
+
+<script src="../js/bizum.js"></script>
+<script src="../com/clsAjax.js"></script>
 
 </body>
 </html>

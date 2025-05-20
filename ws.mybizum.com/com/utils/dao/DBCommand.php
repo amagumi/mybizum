@@ -23,11 +23,25 @@ class DBCommand {
         $stmt->execute();
     
         // Fetch the result as a string (XML)
-        $result = $stmt->fetchColumn();
+        // $result = $stmt->fetchColumn();
 
     
         // No es necesario verificar si es XML aquí
-        return $result;
+        // return $result;
+
+        if ($stmt->columnCount() > 0) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve todos los registros como array asociativo
+        } else {
+            return null; // Si no hay resultados
+        }
+
+        // esto retorna el resultado en string
+        // if ($stmt->columnCount() > 0) {
+        //     $result = $stmt->fetchColumn();
+        //     return $result;
+        // } else {
+        //     return;
+        // }
     }
 
     private function isXML($string) {

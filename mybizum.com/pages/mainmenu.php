@@ -23,7 +23,6 @@ $balance = $_COOKIE['balance'] ?? 'Invitado'; // Valor por defecto si no hay coo
     <!-- <h2>User Options</h2> -->
     <div class="button-container-vertical">
         <button onclick="window.location.href='bizum.php'">Bizum</button>
-        <button onclick="window.location.href='balance.php'">Balance</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
     </div>
     

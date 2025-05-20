@@ -24,42 +24,6 @@
     },
     "var": {
       "www": {
-        "ws.mybizum.com": {
-          "ws.php": {
-            "type": "-",
-            "size": 4453,
-            "lmtime": 1747672595972.853,
-            "modified": false
-          },
-          "com": {
-            "security": {
-              "UserManager.php": {
-                "type": "-",
-                "size": 5800,
-                "lmtime": 1747682795384.574,
-                "modified": false
-              },
-              "block.php": {
-                "type": "-",
-                "size": 1045,
-                "lmtime": 0,
-                "modified": false
-              },
-              "blockchain.php": {
-                "type": "-",
-                "size": 1255,
-                "lmtime": 0,
-                "modified": false
-              },
-              "transaction.php": {
-                "type": "-",
-                "size": 470,
-                "lmtime": 0,
-                "modified": false
-              }
-            }
-          }
-        },
         "mybizum.com": {
           "pages": {
             "balance.php": {
@@ -70,8 +34,8 @@
             },
             "bizum.php": {
               "type": "-",
-              "size": 626,
-              "lmtime": 0,
+              "size": 1502,
+              "lmtime": 1747765942020.6045,
               "modified": false
             },
             "changepassword.php": {
@@ -118,8 +82,8 @@
             },
             "mainmenu.php": {
               "type": "-",
-              "size": 1052,
-              "lmtime": 1747682892758.4658,
+              "size": 1066,
+              "lmtime": 1747764997868.4905,
               "modified": false
             },
             "recover.html": {
@@ -166,10 +130,16 @@
               "lmtime": 0,
               "modified": false
             },
+            "bizum.js": {
+              "type": "-",
+              "size": 2347,
+              "lmtime": 1747766946816.8977,
+              "modified": false
+            },
             "login.js": {
               "type": "-",
               "size": 2269,
-              "lmtime": 1747682987311.942,
+              "lmtime": 0,
               "modified": false
             },
             "logout.js": {
@@ -192,8 +162,8 @@
             },
             "register.js": {
               "type": "-",
-              "size": 2365,
-              "lmtime": 1747674294899.7234,
+              "size": 2627,
+              "lmtime": 1747761746321.1555,
               "modified": false
             },
             "validateaccount.js": {
@@ -202,6 +172,37 @@
               "lmtime": 0,
               "modified": false
             }
+          }
+        },
+        "ws.mybizum.com": {
+          "com": {
+            "bizum": {
+              "clsBizum.php": {
+                "type": "-",
+                "size": 3938,
+                "lmtime": 1747766948997.006,
+                "modified": false
+              }
+            }
+          },
+          "index.html": {
+            "type": "-",
+            "size": 261,
+            "lmtime": 0,
+            "modified": false
+          },
+          "info.php": {
+            "type": "-",
+            "size": 25,
+            "lmtime": 0,
+            "modified": false
+          },
+          "mybizum.com": {},
+          "ws.php": {
+            "type": "-",
+            "size": 4624,
+            "lmtime": 1747766950181.0498,
+            "modified": false
           }
         }
       }
