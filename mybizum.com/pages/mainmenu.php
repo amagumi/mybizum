@@ -1,5 +1,7 @@
+
 <?php
-session_start();
+$username = $_COOKIE['username'] ?? 'Invitado'; // Valor por defecto si no hay cookie
+$balance = $_COOKIE['balance'] ?? 'Invitado'; // Valor por defecto si no hay cookie
 ?>
 
 <!DOCTYPE html>
@@ -13,15 +15,24 @@ session_start();
 </head>
 <body>
 
-<div> <p style="text-align: center"> Welcome, <?php echo $_SESSION['username']; ?></p> 
+<div> <p style="text-align: center">Welcome, <?php echo htmlspecialchars($username); ?></p>
 <div class="container">
+    <div class="button-container-vertical">
+        <p> Balance total: <?php echo htmlspecialchars($balance); ?></p>
+    </div>
     <!-- <h2>User Options</h2> -->
     <div class="button-container-vertical">
         <button onclick="window.location.href='bizum.php'">Bizum</button>
         <button onclick="window.location.href='balance.php'">Balance</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
     </div>
+    
 </div>
+
 
 </body>
 </html>
+
+
+
+

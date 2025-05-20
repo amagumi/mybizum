@@ -39,15 +39,11 @@ function login(action, username, name, lastname, password, email) {
 
             // Si el número de error es 0, el login fue exitoso
             if (numError === "0") {
-                let balanceElem = xmlDoc.getElementsByTagName("balance")[0];
-                let balance = balanceElem ? balanceElem.textContent : "0";
-                document.cookie = "balance=" + encodeURIComponent(balance) + "; path=/";
-                
-                document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
+                // Redirigir al usuario a la página principal (o donde quieras)
                 window.location.href = "../pages/mainmenu.php"; // Cambia la URL según lo que necesites
             } else {
                 // Si el login falla, mostrar un mensaje de error
-                alert("Registro fallido. Verifica las credenciales.");
+                alert("Login fallido. Verifica las credenciales.");
             }
         } else {
             // Si no se encuentra el nodo 'num_error', muestra un mensaje de error

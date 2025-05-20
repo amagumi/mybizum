@@ -40,8 +40,6 @@ require_once 'com/utils/blockchain/transaction.php';
 
 $connection = new DBConnection('172.17.0.4,1433', 'PP_DDBB', 'SA', '<Alba123>');
 $pdoObject = $connection->getPDOObject();
-
-
 $dbCommand = new DBCommand($pdoObject);
 $userManager = new UserManager($dbCommand);
 $dbManager = new DBManager($dbCommand);
@@ -51,7 +49,6 @@ $bizum = new bizum($dbCommand);
 // switch global de acciones y solicitudes
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 if (empty($action)) {
-    echo "Accion no especificada.";
     echo "Accion no especificada.<br>";
     echo isset($_SESSION['username'])
         ? 'User Online: ' . $_SESSION['username'] . '<br><br>'
@@ -74,21 +71,11 @@ if (empty($action)) {
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=transaction&sender=admin&receiver=Manu&amount=10' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewTransaction&username=admin' . '<br>';
 
-    // header("Location: ../Front-end/UI/mainUI.php");
     return;
 } else {
     switch ($action) {
         case "register":
             $userManager->register($_GET['username'], $_GET['name'], $_GET['lastname'], $_GET['password'], $_GET['email']);
-            break;
-        // el register2 es lo mismo que el normal
-        case "register2":
-            $username = $_GET['username'];
-            $name = $_GET['name'];
-            $lastname = $_GET['lastname'];
-            $password = $_GET['password'];
-            $email = $_GET['email'];
-            $userManager->register($username, $name, $lastname, $password, $email);
             break;
         case "login":
             $userManager->login($_GET['username'], $_GET['password'], $action);

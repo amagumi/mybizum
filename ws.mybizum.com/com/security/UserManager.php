@@ -38,25 +38,24 @@ class UserManager {
     }
 
     public function login($username, $password) {
-        if (empty($username) || empty($password)) {
-            echo "Todos los campos son obligatorios.";
-        } else {
-            try {
-                $result = $this->dbCommand->execute('sp_user_login', array($username, $password));
-
-                $_SESSION['username'] = $username;
-
-                // Establecer el encabezado para XML
-                // header('Location: ../../mybizum.com/pages/mainmenu.php');
-                header('Content-Type: text/xml');
-                //echo $_SESSION['username']; // para ver la sesion del usuario logeado porque en xml no se printea
-                // Mostrar la respuesta XML
-                echo $result;
-            } catch (PDOException $e) {
-                echo 'Error: ' . $e->getMessage();
-            }
-        }
+    if (empty($username) || empty($password)) {
+        echo "Todos los campos son obligatorios.";
+        return;
     }
+
+    try {
+        $result = $this->dbCommand->execute('sp_user_login', array($username, $password));
+        $_SESSION['username'] = $username;
+        header('Content-Type: text/xml');
+        echo $result;
+
+        // OPCIONAL: si quieres convertirlo en array PHP o JSON, mira abajo
+
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
 
     public function logout() {  
         try {

@@ -24,18 +24,182 @@
     },
     "var": {
       "www": {
+        "ws.mybizum.com": {
+          "ws.php": {
+            "type": "-",
+            "size": 4453,
+            "lmtime": 1747672595972.853,
+            "modified": false
+          },
+          "com": {
+            "security": {
+              "UserManager.php": {
+                "type": "-",
+                "size": 5800,
+                "lmtime": 1747682795384.574,
+                "modified": false
+              },
+              "block.php": {
+                "type": "-",
+                "size": 1045,
+                "lmtime": 0,
+                "modified": false
+              },
+              "blockchain.php": {
+                "type": "-",
+                "size": 1255,
+                "lmtime": 0,
+                "modified": false
+              },
+              "transaction.php": {
+                "type": "-",
+                "size": 470,
+                "lmtime": 0,
+                "modified": false
+              }
+            }
+          }
+        },
         "mybizum.com": {
+          "pages": {
+            "balance.php": {
+              "type": "-",
+              "size": 574,
+              "lmtime": 0,
+              "modified": false
+            },
+            "bizum.php": {
+              "type": "-",
+              "size": 626,
+              "lmtime": 0,
+              "modified": false
+            },
+            "changepassword.php": {
+              "type": "-",
+              "size": 1111,
+              "lmtime": 0,
+              "modified": false
+            },
+            "currency.php": {
+              "type": "-",
+              "size": 922,
+              "lmtime": 0,
+              "modified": false
+            },
+            "error.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "indexlogged.php": {
+              "type": "-",
+              "size": 1240,
+              "lmtime": 0,
+              "modified": false
+            },
+            "login.php": {
+              "type": "-",
+              "size": 1083,
+              "lmtime": 0,
+              "modified": false
+            },
+            "logout.php": {
+              "type": "-",
+              "size": 635,
+              "lmtime": 0,
+              "modified": false
+            },
+            "mainmenu copy.php": {
+              "type": "-",
+              "size": 923,
+              "lmtime": 0,
+              "modified": false
+            },
+            "mainmenu.php": {
+              "type": "-",
+              "size": 1052,
+              "lmtime": 1747682892758.4658,
+              "modified": false
+            },
+            "recover.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "register.php": {
+              "type": "-",
+              "size": 1633,
+              "lmtime": 0,
+              "modified": false
+            },
+            "useroptions copy.php": {
+              "type": "-",
+              "size": 1243,
+              "lmtime": 0,
+              "modified": false
+            },
+            "useroptions.php": {
+              "type": "-",
+              "size": 770,
+              "lmtime": 0,
+              "modified": false
+            },
+            "validateaccount.php": {
+              "type": "-",
+              "size": 1016,
+              "lmtime": 0,
+              "modified": false
+            },
+            "validateaccountresult.php": {
+              "type": "-",
+              "size": 626,
+              "lmtime": 0,
+              "modified": false
+            }
+          },
           "js": {
-            "login.js": {
+            "balance.js": {
               "type": "-",
               "size": 2250,
               "lmtime": 0,
               "modified": false
             },
+            "login.js": {
+              "type": "-",
+              "size": 2269,
+              "lmtime": 1747682987311.942,
+              "modified": false
+            },
+            "logout.js": {
+              "type": "-",
+              "size": 2250,
+              "lmtime": 0,
+              "modified": false
+            },
+            "passwordValidator copy.js": {
+              "type": "-",
+              "size": 1692,
+              "lmtime": 0,
+              "modified": false
+            },
             "passwordValidator.js": {
               "type": "-",
-              "size": 1550,
-              "lmtime": 1746833578863.7705,
+              "size": 1692,
+              "lmtime": 0,
+              "modified": false
+            },
+            "register.js": {
+              "type": "-",
+              "size": 2365,
+              "lmtime": 1747674294899.7234,
+              "modified": false
+            },
+            "validateaccount.js": {
+              "type": "-",
+              "size": 1874,
+              "lmtime": 0,
               "modified": false
             }
           }

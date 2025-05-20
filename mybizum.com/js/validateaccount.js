@@ -1,9 +1,9 @@
-document.getElementById("loginform").addEventListener("submit", function (event) {
+document.getElementById("validationform").addEventListener("submit", function (event) {
     event.preventDefault(); 
     let action = document.getElementById("action").value;
     let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    login(action, username, password);
+    let code = document.getElementById("code").value;
+    login(action, username, code);
 });
 
 function login(action, username, password) {
@@ -30,15 +30,7 @@ function login(action, username, password) {
             let numError = numErrorElement.textContent;
 
             // login exitoso
-            
             if (numError === "0") {
-
-                let balanceElem = xmlDoc.getElementsByTagName("balance")[0];
-                let balance = balanceElem ? balanceElem.textContent : "0";
-                document.cookie = "balance=" + encodeURIComponent(balance) + "; path=/";
-                
-                document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
-                
                 window.location.href = "../pages/mainmenu.php"; 
             } else {
                 alert("Login fallido. Verifica las credenciales.");

@@ -11,8 +11,8 @@
 
 <div class="container">
     <h2>Validate Account</h2>
-    <form action="../../ws.mybizum.com/com/ws.php" method="GET"> 
-        <input type="hidden" name="action" value="accvalidate">
+    <form action="action" method="GET" id="validationform"> 
+        <input type="hidden" id="action" name="action" value="accvalidate">
         
         <div class="form-group">
             <label for="username">Username</label>
@@ -28,5 +28,7 @@
     </form>
 </div>
 
+<script src="../js/validateaccount.js"></script>
+<script src="../com/clsAjax.js"></script>
 </body>
 </html>
