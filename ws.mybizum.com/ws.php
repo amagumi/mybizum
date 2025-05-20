@@ -44,7 +44,7 @@ $dbCommand = new DBCommand($pdoObject);
 $userManager = new UserManager($dbCommand);
 $dbManager = new DBManager($dbCommand);
 $bizum = new bizum($dbCommand);
-$myBlockchain = new Blockchain();
+// $myBlockchain = new Blockchain();
 
 
 // switch global de acciones y solicitudes
