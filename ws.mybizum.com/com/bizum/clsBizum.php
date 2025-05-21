@@ -43,24 +43,31 @@ class bizum
 
 
     private function __executeTransaction($sender, $receiver, $amount){
-        echo "hola";
+        echo "hola" . "<br><br>";
         $myBlockchain = new Blockchain();
-        $lastblock = Block::read();
+        $lastblock = Block::read($this->DBCommand);
         $transaction = new Transaction($sender, $receiver, $amount);
-        echo $myBlockchain . "<br>";
-        echo $lastblock . "<br>";
-        echo $transaction . "<br>";
+
         var_dump($myBlockchain);
-        echo "<br>";
+        echo "<br><br>";
         var_dump($lastblock);
-        echo "<br>";
+        echo "<br><br>";
         var_dump($transaction);
-        echo "<br>";
+        echo "<br><br>";
 
         $block = new Block($lastblock+1, date("Y-m-d H:i:s"), [$transaction], '');
 
+        echo "echo de block: ";
+        echo "<pre>";
+        print_r($myBlockchain);
+        echo "</pre>";
+
+        
         $myBlockchain->addBlock($block);
-        $myBlockchain->save();
+        
+        // Pasamos el DBCommand a save para que pueda ejecutar las consultas
+        $myBlockchain->save($this->DBCommand);
+        //die;////////////////////
        
         if ($myBlockchain->isChainValid()) {
             echo "La cadena es correcta! ";

@@ -22,30 +22,28 @@ class Block {
     }
 
 
-    public function save(){
-        global $DBCommand;
-        $DBCommand->execute('AddBlock', array($this->previousHash, $this->hash));
+    public function save($DBCommand){ 
+        // Guardar el bloque y recoger el BlockID devuelto
+        $blockID = $DBCommand->execute('AddBlock', array($this->previousHash, $this->hash));
+
+        // Guardar cada transacción asociada al bloque con el BlockID real
         for ($i = 0; $i < count($this->transactions); $i++) {
-            $currentBlock = $this->transactions[$i];
-            $currentBlock->save($this->index);
-
-            echo "<br> index de save block " . $this->index;
+            $currentTransaction = $this->transactions[$i];
+            $currentTransaction->save($blockID, $DBCommand);
+            echo "<br> Guardando transacción en bloque con ID real de base de datos: " . $blockID;
         }
-
     }
 
 
-    public static function read() {
-        global $DBCommand;
-        
+    public static function read($DBCommand) {
         $result = $DBCommand->execute('GetLastBlock', array());
-    
+
         if ($result && isset($result[0]['LastBlockID'])) {
-            return $result[0]['LastBlockID']; //alias en la sp
-        } 
-        return 0; // No hay bloques aún
-        
+            return $result[0]['LastBlockID'];
+        }
+        return 0;
     }
+
     
 }
 

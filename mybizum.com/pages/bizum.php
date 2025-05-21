@@ -27,7 +27,7 @@
         </div>
        
 
-        <button type="submit" value="send bizum">send bizum</button>
+        <button type="submit" value="sendbizum">send bizum</button>
     </form>
 
     <div class="container">
@@ -37,12 +37,12 @@
     </div>
     <div class="container">
         <div class="button-container-vertical">
-    <p> lista de contactos </p>
-        <select>holas
-            <option value ='1'>1</option>
-            <option value ='2'>2</option>
-            <option value ='3'>3</option>
-        </select>
+            <p> lista de contactos </p>
+                <select>holas
+                    <option value ='1'>1</option>
+                    <option value ='2'>2</option>
+                    <option value ='3'>3</option>
+                </select>
         </div>
     </div>
 </div>

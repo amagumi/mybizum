@@ -42,4 +42,8 @@ function sendBizum(action, sender, receiver, amount) {
     })
 }
 
+// function getContacts{
+//     console.log("hola");
+// }
+
 
