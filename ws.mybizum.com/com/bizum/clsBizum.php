@@ -43,24 +43,24 @@ class bizum
 
 
     private function __executeTransaction($sender, $receiver, $amount){
-        echo "hola" . "<br><br>";
+        // echo "hola" . "<br><br>";
         $myBlockchain = new Blockchain();
         $lastblock = Block::read($this->DBCommand);
         $transaction = new Transaction($sender, $receiver, $amount);
 
-        var_dump($myBlockchain);
-        echo "<br><br>";
-        var_dump($lastblock);
-        echo "<br><br>";
-        var_dump($transaction);
-        echo "<br><br>";
+        // var_dump($myBlockchain);
+        // echo "<br><br>";
+        // var_dump($lastblock);
+        // echo "<br><br>";
+        // var_dump($transaction);
+        // echo "<br><br>";
 
         $block = new Block($lastblock+1, date("Y-m-d H:i:s"), [$transaction], '');
 
-        echo "echo de block: ";
-        echo "<pre>";
-        print_r($myBlockchain);
-        echo "</pre>";
+        // echo "echo de block: ";
+        // echo "<pre>";
+        // print_r($myBlockchain);
+        // echo "</pre>";
 
         
         $myBlockchain->addBlock($block);
@@ -70,13 +70,13 @@ class bizum
         //die;////////////////////
        
         if ($myBlockchain->isChainValid()) {
-            echo "La cadena es correcta! ";
+            // echo "La cadena es correcta! ";
             
             $this->__executeBizum($sender, $receiver, $amount);
             
             return;
         } else {
-            echo "la cadena NO es correcta!";
+            // echo "la cadena NO es correcta!";
         }
 
     }
@@ -85,11 +85,8 @@ class bizum
     private function __executeBizum($sender, $receiver, $amount){
      
         $result = $this->DBCommand->execute('sp_create_bizum', array($sender, $receiver, $amount));
-
         header('Content-Type: text/xml');
         echo $result;
-        exit;
-    
     }
 
  

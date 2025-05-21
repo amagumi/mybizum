@@ -30,7 +30,7 @@ class Block {
         for ($i = 0; $i < count($this->transactions); $i++) {
             $currentTransaction = $this->transactions[$i];
             $currentTransaction->save($blockID, $DBCommand);
-            echo "<br> Guardando transacción en bloque con ID real de base de datos: " . $blockID;
+            // echo "<br> Guardando transacción en bloque con ID real de base de datos: " . $blockID;
         }
     }
 

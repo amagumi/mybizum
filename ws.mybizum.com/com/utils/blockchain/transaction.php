@@ -15,7 +15,7 @@ class Transaction
     // Recibe $DBCommand para ejecutar el stored procedure
     public function save($index, $DBCommand){
         $DBCommand->execute('AddTransaction', array($this->sender, $this->receiver, $this->amount, $index));
-        echo "resultado de transaccion: " . $this->sender . ', ' . $this->receiver . ', ' . $this->amount . ', ' . $index . "<br>";
+        // echo "resultado de transaccion: " . $this->sender . ', ' . $this->receiver . ', ' . $this->amount . ', ' . $index . "<br>";
     }
 }
 
