@@ -69,7 +69,7 @@ if (empty($action)) {
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=listusers&ssid=3464f0f6-1a35-4525-9667-c241e399ae42' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=balance&username=admin' . '<br><br>';
     echo 'TRANSACCIONES:' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=transaction&sender=admin&receiver=Manu&amount=10' . '<br>';
+    echo 'http://ws.mybizum.com:8080/com/ws.php?action=sendbizum&sender=asier&receiver=umi&amount=10' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewTransaction&username=admin' . '<br>';
 
     return;
@@ -103,8 +103,8 @@ if (empty($action)) {
             $userManager->checkpwd($_GET['password']);       
             break;
         case "sendbizum":
-            $bizum->sendBizum($_GET['sender'], $_GET['receiver'], $_GET['amount'], $_GET['pdoObject']);    
-
+            $bizum->sendBizum($_GET['sender'], $_GET['receiver'], $_GET['amount']);    
+            break;
         default:
             echo "Acción no válida.";
             break;

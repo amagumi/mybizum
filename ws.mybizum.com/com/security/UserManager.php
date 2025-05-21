@@ -1,10 +1,10 @@
 <?php
 
 class UserManager {
-    private $dbCommand;
+    private $DBCommand;
 
-    public function __construct($dbCommand) {
-        $this->dbCommand = $dbCommand;
+    public function __construct($DBCommand) {
+        $this->DBCommand = $DBCommand;
     }
 
     public function register($username, $name, $lastname, $password, $email) {
@@ -12,9 +12,9 @@ class UserManager {
             echo "Todos los campos son obligatorios.";
         } else {
             try {
-                $result = $this->dbCommand->execute('sp_user_register', array($username, $name, $lastname, $password, $email));
+                $result = $this->DBCommand->execute('sp_user_register', array($username, $name, $lastname, $password, $email));
 
-                $register_code = $this->dbCommand->execute('sp_wdev_get_registercode', array($username, 0));
+                $register_code = $this->DBCommand->execute('sp_wdev_get_registercode', array($username, 0));
 
                 $url = 'https://script.google.com/macros/s/AKfycbzHHL6pycrumpsogGSHrp1Kv88lWHB7agA71VIaEpSkTNPJWYNoo_3vtCN0_SJgx-nNdA/exec';
                 
@@ -44,7 +44,7 @@ class UserManager {
     }
 
     try {
-        $result = $this->dbCommand->execute('sp_user_login', array($username, $password));
+        $result = $this->DBCommand->execute('sp_user_login', array($username, $password));
         $_SESSION['username'] = $username;
         header('Content-Type: text/xml');
         echo $result;
@@ -61,7 +61,7 @@ class UserManager {
         try {
             if (isset($_SESSION['username'])) { 
                 $username = $_SESSION['username'];
-                $result = $this->dbCommand->execute('sp_user_logout', array($username));
+                $result = $this->DBCommand->execute('sp_user_logout', array($username));
                 session_destroy();
                 session_unset();
                 //$sd = session_destroy();
@@ -82,7 +82,7 @@ class UserManager {
             echo "Todos los campos son obligatorios.";
         } else {
             try {
-                $result = $this->dbCommand->execute('sp_user_change_password', array($username, $password, $newpassword));
+                $result = $this->DBCommand->execute('sp_user_change_password', array($username, $password, $newpassword));
 
                 // Establecer el encabezado para XML
                 header('Content-Type: text/xml');
@@ -100,7 +100,7 @@ class UserManager {
             echo "Todos los campos son obligatorios.";
         } else {
             try {
-                $result = $this->dbCommand->execute('sp_user_accountvalidate', array($username, $code));
+                $result = $this->DBCommand->execute('sp_user_accountvalidate', array($username, $code));
 
                 // header('Location: ../../mybizum.com/pages/validateaccountresult.php');
                 // Establecer el encabezado para XML
@@ -120,7 +120,7 @@ class UserManager {
             echo "Todos los campos son obligatorios.";
         } else {
             try {
-                $result = $this->dbCommand->execute('sp_list_users2', array($ssid));
+                $result = $this->DBCommand->execute('sp_list_users2', array($ssid));
 
                 // Establecer el encabezado para XML
                 header('Content-Type: text/xml');
@@ -138,7 +138,7 @@ class UserManager {
             echo "Todos los campos son obligatorios.";
         } else {
             try {
-                $result = $this->dbCommand->execute('sp_user_register_check_pwd', array($password));
+                $result = $this->DBCommand->execute('sp_user_register_check_pwd', array($password));
     
                 header('Content-Type: text/xml');
                 // Mostrar la respuesta XML
