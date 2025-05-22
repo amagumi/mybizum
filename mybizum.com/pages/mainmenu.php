@@ -1,7 +1,8 @@
 
 <?php
-$username = $_COOKIE['username'] ?? 'Invitado'; // Valor por defecto si no hay cookie
-$balance = $_COOKIE['balance'] ?? 'Invitado'; // Valor por defecto si no hay cookie
+session_start();
+$username = $_SESSION['username'] ?? 'Invitado';
+$balance = $_SESSION['balance'] ?? '0';
 ?>
 
 <!DOCTYPE html>

@@ -51,3 +51,7 @@ function login(action, username, password) {
 
     AJAX.Call();
 }
+
+function getUsername(username){
+    
+}

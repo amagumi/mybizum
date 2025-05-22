@@ -38,23 +38,30 @@ class UserManager {
     }
 
     public function login($username, $password) {
-    if (empty($username) || empty($password)) {
-        echo "Todos los campos son obligatorios.";
-        return;
+        if (empty($username) || empty($password)) {
+            echo "Todos los campos son obligatorios.";
+            return;
+        }
+
+        try {
+            $result = $this->DBCommand->execute('sp_user_login', array($username, $password));
+
+            $xml = simplexml_load_string($result);
+            if ($xml && isset($xml->username)) {
+                $_SESSION['username'] = (string)$xml->username;
+            }
+            if ($xml && isset($xml->balance)) {
+                $_SESSION['balance'] = (string)$xml->balance;
+            }
+            header('Content-Type: text/xml');
+            echo $result;
+
+            // OPCIONAL: si quieres convertirlo en array PHP o JSON, mira abajo
+
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
-
-    try {
-        $result = $this->DBCommand->execute('sp_user_login', array($username, $password));
-        $_SESSION['username'] = $username;
-        header('Content-Type: text/xml');
-        echo $result;
-
-        // OPCIONAL: si quieres convertirlo en array PHP o JSON, mira abajo
-
-    } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
-    }
-}
 
 
     public function logout() {  
