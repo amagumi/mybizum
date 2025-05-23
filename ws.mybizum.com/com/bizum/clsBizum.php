@@ -80,6 +80,12 @@ class bizum
         }
 
     }
+
+    
+    public function getBalance($sender) {
+        $result = $this->DBCommand->execute('sp_get_balance', [$sender]);
+        return $result;
+    }
     
 
     private function __executeBizum($sender, $receiver, $amount){

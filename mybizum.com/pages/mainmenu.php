@@ -1,8 +1,14 @@
-
 <?php
-$username = $_COOKIE['username'] ?? 'Invitado'; // Valor por defecto si no hay cookie
-$balance = $_COOKIE['balance'] ?? 'Invitado'; // Valor por defecto si no hay cookie
+session_start();
+$username = $_COOKIE['username'] ?? 'Invitado';
+$balance = $_SESSION['balance'] ?? 'No disponible';
 ?>
+
+
+<script>
+    const balance = sessionStorage.getItem("balance");
+    document.getElementById("balance").textContent = balance ?? "No disponible";
+</script>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -24,6 +30,8 @@ $balance = $_COOKIE['balance'] ?? 'Invitado'; // Valor por defecto si no hay coo
     <div class="button-container-vertical">
         <button onclick="window.location.href='bizum.php'">Bizum</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
+        <button onclick="window.location.href='logout.php'">Logout</button>
+
     </div>
     
 </div>

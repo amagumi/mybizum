@@ -58,9 +58,8 @@ if (empty($action)) {
 
 // chuleta de manu
     echo "Ejemplo de uso: <br>";
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=login&username=umi&password=Test12345!!' . '<br><br>';
+    echo 'http://ws.mybizum.com:8080/com/ws.php?action=login&username=umi&password=a' . '<br><br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=logout' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=CheckPasswordStrength&checkPassword=%27123456%27' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=register&username=pruebas&name=nomprova&lastname=provalast&password=123456&email=prueba@gmail.com&repassword=123456' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=changepass&username=admin&password=12354&newpassword=12345' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewcon' . '<br>';
