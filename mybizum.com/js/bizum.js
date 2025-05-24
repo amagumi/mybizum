@@ -1,29 +1,11 @@
-function getCookie(name) {
-    let cookies = document.cookie.split(";");
-
-    for (let i = 0; i < cookies.length; i++) {
-        let c = cookies[i].trim();
-
-        // Check if this cookie starts with the name
-        if (c.indexOf(name + "=") === 0) {
-            return c.substring(name.length + 1, c.length);
-        }
-    }
-
-    return null;
-}
-
-console.log("Usuario logueado:", getCookie("username"));
-
-
 
 document.getElementById("bizumform").addEventListener("submit", function (event) {
     event.preventDefault();
+
     let action = document.getElementById("action").value;
-    let sender = getCookie("username");
     let receiver = document.getElementById("receiver").value;  
     let amount = document.getElementById("amount").value;
-    
+
     if (sender === receiver){
         alert("No te puedes enviar a ti mismo!.");
         return;
@@ -68,7 +50,7 @@ function sendBizum(action, sender, receiver, amount) {
             
             if (numError === "0") {
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "../pages/set_balance.php", true);
+                xhr.open("POST", "../storedata/set_data.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -82,7 +64,7 @@ function sendBizum(action, sender, receiver, amount) {
             }
         } else {
             // Si no se encuentra el nodo 'num_error', muestra un mensaje de error
-            alert("Error inesperado al procesar la respuesta.");
+            alert("Error inesperado al procesar la respuestaaa.");
         }
     });
 

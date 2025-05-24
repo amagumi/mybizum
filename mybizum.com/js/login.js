@@ -35,18 +35,17 @@ function login(action, username, password) {
                 let balanceElem = xmlDoc.getElementsByTagName("balance")[0];
                 let balance = balanceElem ? balanceElem.textContent : "0";
 
-                document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
-
-                // Guardar balance con XHR POST antes de redirigir
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "../pages/set_balance.php", true);
+                xhr.open("POST", "../storedata/set_data.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         window.location.href = "../pages/mainmenu.php";
                     }
                 };
-                xhr.send("balance=" + encodeURIComponent(balance));
+                let params = "balance=" + encodeURIComponent(balance) + "&username=" + encodeURIComponent(username);
+                xhr.send(params);
+
 
                 // Evitamos que se dispare varias veces
                 document.removeEventListener('__CALL_RETURNED__', onLoginResponse);

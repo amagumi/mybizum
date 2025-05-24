@@ -1,3 +1,11 @@
+<?php
+session_start();
+$loggedUser = $_SESSION['username'] ?? null;
+?>
+<script>
+    const sender = "<?php echo htmlspecialchars($loggedUser); ?>";
+</script>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,38 +25,28 @@
         <div style="display: flex; flex-direction: row">
              <div class="form-group">
                 <label for="receiver">receiver</label>
-                <input type="text" id="receiver" name="receiver" required>
+                <select id="receiver" name="receiver">
+                    <option disabled selected>Selecciona un contacto</option>
+                </select>
+                <!-- <input style="cursor: default; user-select: none; pointer-events: none;" type="text" id="receiver" name="receiver" readonly class="no-select" /> -->
             </div>
 
             <div class="form-group">
                 <label for="amount">amount</label>
-                <input type="amount" id="amount" name="amount" required>
+                <input type="number" id="amount" name="amount" step="0.01" required>
             </div>
         </div>
        
-        <button type="submit" value="send bizum">send bizum</button>
+        <button type="submit" value="sendbizum">send bizum</button>
     </form>
 
-    <div class="container">
-        <div class="button-container-vertical">
-            <button onclick="window.location.href=''">historial</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="button-container-vertical">
-
-            <p> lista de contactos </p>
-                <select>holas
-                    <option value ='1'>1</option>
-                    <option value ='2'>2</option>
-                    <option value ='3'>3</option>
-                </select>
-        </div>
-    </div>
+  
+ 
 </div>
 
 
 <script src="../js/bizum.js"></script>
+<script src="../js/contacts.js"></script>
 <script src="../com/clsAjax.js"></script>
 
 </body>

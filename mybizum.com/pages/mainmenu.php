@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username = $_COOKIE['username'] ?? 'Invitado';
+$username = $_SESSION['username'] ?? 'Invitado';
 $balance = $_SESSION['balance'] ?? 'No disponible';
 ?>
 
@@ -8,7 +8,10 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
 <script>
     const balance = sessionStorage.getItem("balance");
     document.getElementById("balance").textContent = balance ?? "No disponible";
+
+    const loggedUser = "<?php echo htmlspecialchars($username); ?>";
 </script>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -30,6 +33,7 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
     <div class="button-container-vertical">
         <button onclick="window.location.href='bizum.php'">Bizum</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
+        <button onclick="window.location.href='transactions.php'">History</button>
         <button onclick="window.location.href='logout.php'">Logout</button>
 
     </div>
