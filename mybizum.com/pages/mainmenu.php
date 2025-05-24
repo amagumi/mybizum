@@ -30,6 +30,7 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
     <div class="button-container-vertical">
         <button onclick="window.location.href='bizum.php'">Bizum</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
+        <button onclick="window.location.href='useroptions.php'">History</button>
         <button onclick="window.location.href='logout.php'">Logout</button>
 
     </div>

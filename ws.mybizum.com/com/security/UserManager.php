@@ -115,24 +115,27 @@ class UserManager {
         }
     }
 
-    public function listusers($ssid){
-        if (empty($ssid)){
-            echo "Todos los campos son obligatorios.";
-        } else {
-            try {
-                $result = $this->DBCommand->execute('sp_list_users2', array($ssid));
 
-                // Establecer el encabezado para XML
-                header('Content-Type: text/xml');
+    public function listusers() {
+        try {
+            // Ejecutamos el stored procedure que devuelve XML
+            $result = $this->DBCommand->execute('sp_list_users');
 
-                // Mostrar la respuesta XML
-                echo $result;
-                
-            } catch (PDOException $e) {
-                echo 'Error: ' . $e->getMessage();
-            }
+            // header debe ir antes de imprimir cualquier cosa
+            header('Content-Type: text/xml');
+
+            // Aquí asumimos que $result es string XML
+            echo $result;
+
+        } catch (PDOException $e) {
+            // En caso de error devolver JSON o texto
+            header('Content-Type: application/json');
+            echo json_encode(['error' => $e->getMessage()]);
         }
     }
+
+
+
     public function checkpwd($password) {
         if (empty($password)) {
             echo "Todos los campos son obligatorios.";

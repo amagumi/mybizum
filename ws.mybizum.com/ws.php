@@ -96,7 +96,7 @@ if (empty($action)) {
             $userManager->accountValidate($_GET['username'], $_GET['code']);
             break;
         case "listusers":
-            $userManager->listusers($_GET['ssid']);
+            $userManager->listusers();
             break;
         case "checkpwd":
             $userManager->checkpwd($_GET['password']);       

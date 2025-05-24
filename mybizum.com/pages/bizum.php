@@ -17,7 +17,7 @@
         <div style="display: flex; flex-direction: row">
              <div class="form-group">
                 <label for="receiver">receiver</label>
-                <input type="text" id="receiver" name="receiver" required>
+                <input style="cursor: default; user-select: none;" type="text" id="receiver" name="receiver" readonly class="no-select" />
             </div>
 
             <div class="form-group">
@@ -26,7 +26,7 @@
             </div>
         </div>
        
-        <button type="submit" value="send bizum">send bizum</button>
+        <button type="submit" value="sendbizum">send bizum</button>
     </form>
 
     <div class="container">
@@ -38,17 +38,17 @@
         <div class="button-container-vertical">
 
             <p> lista de contactos </p>
-                <select>holas
-                    <option value ='1'>1</option>
-                    <option value ='2'>2</option>
-                    <option value ='3'>3</option>
+                <select id="contacts-select">
+                    <option disabled selected>Selecciona un contacto</option>
                 </select>
+
         </div>
     </div>
 </div>
 
 
 <script src="../js/bizum.js"></script>
+<script src="../js/contacts.js"></script>
 <script src="../com/clsAjax.js"></script>
 
 </body>
