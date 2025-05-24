@@ -1,3 +1,11 @@
+<?php
+session_start();
+$loggedUser = $_SESSION['username'] ?? null;
+?>
+<script>
+    const sender = "<?php echo htmlspecialchars($loggedUser); ?>";
+</script>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +25,7 @@
         <div style="display: flex; flex-direction: row">
              <div class="form-group">
                 <label for="receiver">receiver</label>
-                <input style="cursor: default; user-select: none;" type="text" id="receiver" name="receiver" readonly class="no-select" />
+                <input style="cursor: default; user-select: none; pointer-events: none;" type="text" id="receiver" name="receiver" readonly class="no-select" />
             </div>
 
             <div class="form-group">
