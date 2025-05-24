@@ -16,13 +16,13 @@ function getCookie(name) {
 console.log("Usuario logueado:", getCookie("username"));
 
 
+
 document.getElementById("bizumform").addEventListener("submit", function (event) {
     event.preventDefault();
     let action = document.getElementById("action").value;
     let sender = getCookie("username");
     let receiver = document.getElementById("receiver").value;  
     let amount = document.getElementById("amount").value;
-    
     
     if (sender === receiver){
         alert("No te puedes enviar a ti mismo!.");
@@ -40,6 +40,7 @@ function sendBizum(action, sender, receiver, amount) {
 
 
 
+
     // falta codear el num error segun el caso
     document.addEventListener('__CALL_RETURNED__', function() {
     // Esta función se ejecuta cuando se recibe la respuesta del servidor
@@ -48,9 +49,11 @@ function sendBizum(action, sender, receiver, amount) {
         // Mostrar la respuesta completa en la consola para depuración
         // console.log("Respuesta del servidor:", response);
 
+
         // Parsear el XML de la respuesta
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(response, "text/xml");
+
 
         
         // Verifica que el nodo 'num_error' exista antes de acceder a él
