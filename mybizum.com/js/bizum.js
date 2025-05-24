@@ -64,7 +64,7 @@ function sendBizum(action, sender, receiver, amount) {
             }
         } else {
             // Si no se encuentra el nodo 'num_error', muestra un mensaje de error
-            alert("Error inesperado al procesar la respuestaaa.");
+            alert("Error. Comprueba los campos.");
         }
     });
 
