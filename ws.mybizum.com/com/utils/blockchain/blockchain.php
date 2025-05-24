@@ -40,10 +40,10 @@ class Blockchain {
     }
 
 
-    public function save() {
+    public function save($DBCommand) {
         for ($i = 1; $i < count($this->chain); $i++) {
             $currentBlock = $this->chain[$i];
-            $currentBlock->save();
+            $currentBlock->save($DBCommand);
         }
     }
 }

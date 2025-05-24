@@ -33,9 +33,9 @@ require_once 'com/utils/dao/DBManager.php';
 require_once 'com/utils/mailtools/mail_sender.php';
 require_once 'com/security/UserManager.php';
 require_once 'com/bizum/clsBizum.php';
-require_once 'com/utils/blockchain/block.php';
-require_once 'com/utils/blockchain/blockchain.php';
-require_once 'com/utils/blockchain/transaction.php';
+// require_once 'com/utils/blockchain/block.php';
+// require_once 'com/utils/blockchain/blockchain.php';
+// require_once 'com/utils/blockchain/transaction.php';
 
 
 $connection = new DBConnection('172.17.0.4,1433', 'PP_DDBB', 'SA', '<Alba123>');
@@ -44,6 +44,7 @@ $dbCommand = new DBCommand($pdoObject);
 $userManager = new UserManager($dbCommand);
 $dbManager = new DBManager($dbCommand);
 $bizum = new bizum($dbCommand);
+// $myBlockchain = new Blockchain();
 
 
 // switch global de acciones y solicitudes
@@ -57,9 +58,8 @@ if (empty($action)) {
 
 // chuleta de manu
     echo "Ejemplo de uso: <br>";
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=login&username=umi&password=Test12345!!' . '<br><br>';
+    echo 'http://ws.mybizum.com:8080/com/ws.php?action=login&username=umi&password=a' . '<br><br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=logout' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=CheckPasswordStrength&checkPassword=%27123456%27' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=register&username=pruebas&name=nomprova&lastname=provalast&password=123456&email=prueba@gmail.com&repassword=123456' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=changepass&username=admin&password=12354&newpassword=12345' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewcon' . '<br>';
@@ -68,7 +68,7 @@ if (empty($action)) {
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=listusers&ssid=3464f0f6-1a35-4525-9667-c241e399ae42' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=balance&username=admin' . '<br><br>';
     echo 'TRANSACCIONES:' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=transaction&sender=admin&receiver=Manu&amount=10' . '<br>';
+    echo 'http://ws.mybizum.com:8080/com/ws.php?action=sendbizum&sender=asier&receiver=umi&amount=10' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewTransaction&username=admin' . '<br>';
 
     return;
@@ -94,12 +94,16 @@ if (empty($action)) {
             break;
         case "accvalidate":
             $userManager->accountValidate($_GET['username'], $_GET['code']);
+            break;
         case "listusers":
             $userManager->listusers($_GET['ssid']);
+            break;
         case "checkpwd":
             $userManager->checkpwd($_GET['password']);       
             break;
-
+        case "sendbizum":
+            $bizum->sendBizum($_GET['sender'], $_GET['receiver'], $_GET['amount']);    
+            break;
         default:
             echo "Acción no válida.";
             break;
