@@ -15,7 +15,7 @@ function getContacts() {
 
         if (numErrorElement && numErrorElement.textContent === "0") {
             // ✅ Selección precisa del <select>
-            let selectElement = document.getElementById("contacts-select");
+            let selectElement = document.getElementById("receiver");
 
             selectElement.innerHTML = "<option disabled selected>Selecciona un contacto</option>";
 
@@ -41,8 +41,4 @@ function getContacts() {
 
 window.onload = function () {
     getContacts();
-
-    document.getElementById("contacts-select").addEventListener("change", function () {
-        document.getElementById("receiver").value = this.value;
-    });
 };

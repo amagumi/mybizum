@@ -25,33 +25,23 @@ $loggedUser = $_SESSION['username'] ?? null;
         <div style="display: flex; flex-direction: row">
              <div class="form-group">
                 <label for="receiver">receiver</label>
-                <input style="cursor: default; user-select: none; pointer-events: none;" type="text" id="receiver" name="receiver" readonly class="no-select" />
+                <select id="receiver" name="receiver">
+                    <option disabled selected>Selecciona un contacto</option>
+                </select>
+                <!-- <input style="cursor: default; user-select: none; pointer-events: none;" type="text" id="receiver" name="receiver" readonly class="no-select" /> -->
             </div>
 
             <div class="form-group">
                 <label for="amount">amount</label>
-                <input type="amount" id="amount" name="amount" required>
+                <input type="number" id="amount" name="amount" required>
             </div>
         </div>
        
         <button type="submit" value="sendbizum">send bizum</button>
     </form>
 
-    <div class="container">
-        <div class="button-container-vertical">
-            <button onclick="window.location.href=''">historial</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="button-container-vertical">
-
-            <p> lista de contactos </p>
-                <select id="contacts-select">
-                    <option disabled selected>Selecciona un contacto</option>
-                </select>
-
-        </div>
-    </div>
+  
+ 
 </div>
 
 
