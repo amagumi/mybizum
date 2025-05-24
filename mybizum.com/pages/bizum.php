@@ -33,7 +33,7 @@ $loggedUser = $_SESSION['username'] ?? null;
 
             <div class="form-group">
                 <label for="amount">amount</label>
-                <input type="number" id="amount" name="amount" required>
+                <input type="number" id="amount" name="amount" step="0.01" required>
             </div>
         </div>
        
