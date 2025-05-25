@@ -98,6 +98,9 @@ if (empty($action)) {
         case "listusers":
             $userManager->listusers();
             break;
+        case "listtransactions":
+            $bizum->getTransactions();
+            break;
         case "checkpwd":
             $userManager->checkpwd($_GET['password']);       
             break;

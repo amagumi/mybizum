@@ -24,13 +24,6 @@ function login(action, username, name, lastname, password, email) {
         // Parsear el XML de la respuesta
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(response, "text/xml");
-
-
-
-
-
-
-
         // Verifica que el nodo 'num_error' exista antes de acceder a él
         let numErrorElement = xmlDoc.getElementsByTagName("num_error")[0];
         

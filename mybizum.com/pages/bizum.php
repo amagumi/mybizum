@@ -2,9 +2,11 @@
 session_start();
 $loggedUser = $_SESSION['username'] ?? null;
 ?>
+
 <script>
     const sender = "<?php echo htmlspecialchars($loggedUser); ?>";
 </script>
+
 
 <!DOCTYPE html>
 <html lang="es">

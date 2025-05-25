@@ -4,7 +4,6 @@ $username = $_SESSION['username'] ?? 'Invitado';
 $balance = $_SESSION['balance'] ?? 'No disponible';
 ?>
 
-
 <script>
     const balance = sessionStorage.getItem("balance");
     document.getElementById("balance").textContent = balance ?? "No disponible";

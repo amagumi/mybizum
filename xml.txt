@@ -1,33 +1,61 @@
-estructura xml
+USE [PP_DDBB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_xml_error_message]    Script Date: 25/05/2025 0:12:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_xml_error_message]
+    @RETURN INT,
+    @XmlResponse XML OUTPUT,
+	@UserData XML = NULL
+AS
+BEGIN
+    DECLARE @SERVER_ID NVARCHAR(200) = @@SERVERNAME;
+    DECLARE @SERVER_TIME NVARCHAR(20) = CONVERT(NVARCHAR(20), GETDATE(), 120);
+    DECLARE @EXECUTION_TIME NVARCHAR(20) = '0.00'; -- Modificar si se mide realmente
+    DECLARE @URL NVARCHAR(200) = 'http://ws.mybizum.com/'; -- Reemplazar por valor real si se necesita dinámico
+    DECLARE @WEBMETHOD_NAME NVARCHAR(100) = 'MyWebMethod'; -- Reemplazar por nombre real
+    DECLARE @PARAM_NAME NVARCHAR(100) = 'param1';
+    DECLARE @PARAM_VALUE NVARCHAR(100) = 'value1';
 
-<?xml version="1.0" encoding="UTF-8"?>
-<ws_response>
-    <head>
-        <server_id></server_id>
-        <server_time></server_time>
-        <execution_time></execution_time>
-        <url></url>
-        <webmethod>
-            <name></name>
-            <parameters>
-                <parameter>
-                    <name></name>
-                    <value></value>
-                </parameter>
-            </parameters>
-        </webmethod>
-        
-        <errors>
-            <error>
-                <num_error></num_error>
-                <message_error></message_error>
-                <severity></severity>
-                <user_message></user_message>
-            </error>
-        </errors>
-    </head>
+    DECLARE @ERROR_CODE INT = @RETURN;
+    DECLARE @ERROR_MESSAGE NVARCHAR(200);
+    DECLARE @SEVERITY INT = 1; -- Ajustar si tienes severidades reales
+    DECLARE @USER_MESSAGE NVARCHAR(200) = 'user message';
 
-    <body>
-        <response_data></response_data>
-    </body>
-</ws_response>
+    -- Buscar mensaje de error
+    SELECT @ERROR_MESSAGE = ERROR_MESSAGE
+    FROM USER_ERRORS
+    WHERE ERROR_CODE = @ERROR_CODE;
+
+    -- Construir XML final con estructura solicitada
+    SET @XmlResponse = (
+        SELECT
+            @SERVER_ID AS 'head/server_id',
+            @SERVER_TIME AS 'head/server_time',
+            @EXECUTION_TIME AS 'head/execution_time',
+            @URL AS 'head/url',
+            @WEBMETHOD_NAME AS 'head/webmethod/name',
+            (
+                SELECT
+                    @PARAM_NAME AS 'name',
+                    @PARAM_VALUE AS 'value'
+                FOR XML PATH('parameter'), ROOT('parameters'), TYPE
+            ) AS 'head/webmethod/parameters',
+            (
+                SELECT
+                    @ERROR_CODE AS 'num_error',
+                    @ERROR_MESSAGE AS 'message_error',
+                    @SEVERITY AS 'severity',
+                    @USER_MESSAGE AS 'user_message'
+                FOR XML PATH('error'), ROOT('errors'), TYPE
+            ) AS 'head/errors',
+            (
+                SELECT
+                    ISNULL(@UserData.query('.'), '') AS '*'
+                FOR XML PATH('response_data'), TYPE
+            )
+        FOR XML PATH('ws_response'), TYPE
+    );
+END
