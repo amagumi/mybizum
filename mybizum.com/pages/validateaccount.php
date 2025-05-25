@@ -1,3 +1,16 @@
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if (code) {
+        document.getElementById("registercodehint").textContent = "Código de registro: " + code;
+    }
+});
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,6 +35,7 @@
         <div class="form-group">
             <label for="text">Register Code</label>
             <input type="text" id="code" name="code" required>
+            <small style="color:#e1e1e1;" id="registercodehint" class="registercodehint"></small> 
         </div>
 
         <button type="submit" value="accvalidate">Verify</button>

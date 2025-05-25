@@ -37,7 +37,13 @@ function login(action, username, name, lastname, password, email) {
                 document.cookie = "balance=" + encodeURIComponent(balance) + "; path=/";
                 
                 document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
-                window.location.href = "../pages/validateaccount.php"; // Cambia la URL según lo que necesites
+
+                // Extraer el register_code del XML
+                let registerCodeElem = xmlDoc.getElementsByTagName("register_code")[0];
+                let registerCode = registerCodeElem ? registerCodeElem.textContent : "";
+
+                // Redirigir pasando username y code por GET
+                window.location.href = `../pages/validateaccount.php?username=${encodeURIComponent(username)}&code=${encodeURIComponent(registerCode)}`;
             } else {
                 // Si el login falla, mostrar un mensaje de error
                 alert("Registro fallido. Verifica las credenciales.");
