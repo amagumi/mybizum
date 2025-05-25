@@ -18,6 +18,8 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/logout.js"></script>    
+    <script src="../com/clsAjax.js"></script>
     <title>Main Menu</title>
     
 </head>
@@ -33,11 +35,12 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
         <button onclick="window.location.href='bizum.php'">Bizum</button>
         <button onclick="window.location.href='useroptions.php'">Options</button>
         <button onclick="window.location.href='transactions.php'">History</button>
-        <button onclick="window.location.href='logout.php'">Logout</button>
+        <button onclick="logout()">Logout</button>
 
     </div>
     
 </div>
+
 
 
 </body>
