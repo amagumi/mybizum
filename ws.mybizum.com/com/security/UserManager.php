@@ -7,6 +7,7 @@ class UserManager {
         $this->DBCommand = $DBCommand;
     }
 
+
     public function register($username, $name, $lastname, $password, $email) {
         if (empty($username) || empty($name) || empty($lastname) || empty($password) || empty($email)) {
             echo "Todos los campos son obligatorios.";
@@ -37,45 +38,52 @@ class UserManager {
         }
     }
 
+
     public function login($username, $password) {
-    if (empty($username) || empty($password)) {
-        echo "Todos los campos son obligatorios.";
-        return;
-    }
+        if (empty($username) || empty($password)) {
+            echo "Todos los campos son obligatorios.";
+            return;
+        }
 
-    try {
-        $result = $this->DBCommand->execute('sp_user_login', array($username, $password));
-        $_SESSION['username'] = $username;
-        header('Content-Type: text/xml');
-        echo $result;
-
-        // OPCIONAL: si quieres convertirlo en array PHP o JSON, mira abajo
-
-    } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
-    }
-}
-
-
-    public function logout() {  
         try {
-            if (isset($_SESSION['username'])) { 
-                $username = $_SESSION['username'];
-                $result = $this->DBCommand->execute('sp_user_logout', array($username));
-                session_destroy();
-                session_unset();
-                //$sd = session_destroy();
-                // Establecer el encabezado para XML
-                header('Content-Type: text/xml');
-                //echo $_SESSION['username'];
-        
-                // Mostrar la respuesta XML
-                echo $result;
-            }
+            $result = $this->DBCommand->execute('sp_user_login', array($username, $password));
+            $_SESSION['username'] = $username;
+            header('Content-Type: text/xml');
+            echo $result;
+
+            // OPCIONAL: si quieres convertirlo en array PHP o JSON, mira abajo
+
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
     }
+
+
+    public function logout() {
+        header('Content-Type: text/xml');
+
+        try {
+            if (isset($_SESSION['username'])) {
+                $username = $_SESSION['username'];
+
+                $result = $this->DBCommand->execute('sp_user_logout', array($username));
+
+                session_unset();
+                session_destroy();
+
+                // Si el SP devuelve XML válido, lo imprimimos directamente
+                echo $result;
+            } else {
+                // Si no hay sesión, devolver XML con error
+                echo '<response><num_error>1</num_error><message>Sesión no iniciada</message></response>';
+            }
+        } catch (PDOException $e) {
+            // Devolver error en XML
+            echo '<response><num_error>2</num_error><message>' . htmlspecialchars($e->getMessage()) . '</message></response>';
+        }
+    }
+
+
 
     public function changePassword($username, $password, $newpassword) {
         if (empty($username) || empty($password)) {
@@ -94,6 +102,7 @@ class UserManager {
             }
         }
     }
+
 
     public function accountValidate($username, $code){
         if (empty($username) || empty($code)){
@@ -135,7 +144,6 @@ class UserManager {
     }
 
 
-
     public function checkpwd($password) {
         if (empty($password)) {
             echo "Todos los campos son obligatorios.";
@@ -152,9 +160,9 @@ class UserManager {
             }
         }
     }
+
     
-    public function url()
-    {
+    public function url(){
         // Obtener el protocolo
         $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 

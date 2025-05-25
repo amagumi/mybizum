@@ -82,10 +82,10 @@ class bizum
     }
 
     
-    public function getBalance($sender) {
-        $result = $this->DBCommand->execute('sp_get_balance', [$sender]);
-        return $result;
-    }
+    // public function getBalance($sender) {
+    //     $result = $this->DBCommand->execute('sp_get_balance', [$sender]);
+    //     return $result;
+    // }
     
 
     private function __executeBizum($sender, $receiver, $amount){
@@ -96,5 +96,31 @@ class bizum
     }
 
  
+    public function getTransactions(){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $username = $_SESSION['username'] ?? null;
+
+        if (!$username) {
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'No hay usuario logueado']);
+            return;
+        }
+
+        try {
+            // Pasamos $username como parámetro al stored procedure
+            $result = $this->DBCommand->execute('sp_get_transactions', array($username));
+
+            header('Content-Type: text/xml');
+            echo $result;
+
+        } catch (PDOException $e) {
+            header('Content-Type: application/json');
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
+
 }
 ?>
