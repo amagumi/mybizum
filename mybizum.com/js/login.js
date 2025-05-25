@@ -46,9 +46,6 @@ function login(action, username, password) {
                 let params = "balance=" + encodeURIComponent(balance) + "&username=" + encodeURIComponent(username);
                 xhr.send(params);
 
-
-                // Evitamos que se dispare varias veces
-                document.removeEventListener('__CALL_RETURNED__', onLoginResponse);
             } else {
                 alert("Login fallido. Verifica las credenciales.");
             }
