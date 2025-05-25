@@ -4,12 +4,6 @@ $username = $_SESSION['username'] ?? 'Invitado';
 $balance = $_SESSION['balance'] ?? 'No disponible';
 ?>
 
-<script>
-    const balance = sessionStorage.getItem("balance");
-    document.getElementById("balance").textContent = balance ?? "No disponible";
-
-    const loggedUser = "<?php echo htmlspecialchars($username); ?>";
-</script>
 
 
 <!DOCTYPE html>
@@ -42,6 +36,16 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
 </div>
 
 
+<!-- Al final del archivo HTML, antes de </body> -->
+<script>
+    const balance = sessionStorage.getItem("balance");
+    const balanceElement = document.getElementById("balance");
+    if (balanceElement) {
+        balanceElement.textContent = balance ?? "No disponible";
+    }
+
+    const loggedUser = "<?php echo htmlspecialchars($username); ?>";
+</script>
 
 </body>
 </html>

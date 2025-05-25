@@ -41,7 +41,6 @@ function getTransactions() {
                 transListDiv.appendChild(div);
             }
 
-            document.removeEventListener('__CALL_RETURNED__', onTransactionsResponse);
         } else {
             alert("Error al cargar transacciones.");
         }

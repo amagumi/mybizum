@@ -1,6 +1,12 @@
 {
   "ftp://alba@127.0.0.1:21": {
     "Scripts": {},
+    "db.sql": {
+      "type": "-",
+      "size": 52322,
+      "lmtime": 0,
+      "modified": false
+    },
     "mybizum.com": {},
     "mybizum_0705.sql": {
       "type": "-",
@@ -11,21 +17,155 @@
     "mychain.com": {},
     "tasks.txt": {
       "type": "-",
-      "size": 648,
+      "size": 23,
       "lmtime": 0,
-      "modified": false
+      "modified": true
     },
     "ws.mybizum.com": {},
     "xml.txt": {
       "type": "-",
-      "size": 834,
+      "size": 2325,
       "lmtime": 0,
-      "modified": false
+      "modified": true
     },
     "var": {
       "www": {
         "Scripts": {},
+        "db.sql": {
+          "type": "-",
+          "size": 52322,
+          "lmtime": 0,
+          "modified": false
+        },
         "mybizum.com": {
+          "pages": {
+            "balance.php": {
+              "type": "-",
+              "size": 574,
+              "lmtime": 0,
+              "modified": false
+            },
+            "bizum.php": {
+              "type": "-",
+              "size": 1579,
+              "lmtime": 1748136359012.6406,
+              "modified": false
+            },
+            "changepassword.php": {
+              "type": "-",
+              "size": 1320,
+              "lmtime": 1748136359012.6406,
+              "modified": false
+            },
+            "contacts.php": {
+              "type": "-",
+              "size": 0,
+              "lmtime": 0,
+              "modified": false
+            },
+            "currency.php": {
+              "type": "-",
+              "size": 922,
+              "lmtime": 0,
+              "modified": false
+            },
+            "error.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "indexlogged.php": {
+              "type": "-",
+              "size": 1240,
+              "lmtime": 0,
+              "modified": false
+            },
+            "login.php": {
+              "type": "-",
+              "size": 1083,
+              "lmtime": 0,
+              "modified": false
+            },
+            "logout.php": {
+              "type": "-",
+              "size": 588,
+              "lmtime": 1748136359012.6406,
+              "modified": false
+            },
+            "mainmenu copy.php": {
+              "type": "-",
+              "size": 923,
+              "lmtime": 0,
+              "modified": false
+            },
+            "mainmenu.php": {
+              "type": "-",
+              "size": 1332,
+              "lmtime": 1748136359014.649,
+              "modified": false
+            },
+            "recover.html": {
+              "type": "-",
+              "size": 215,
+              "lmtime": 0,
+              "modified": false
+            },
+            "register.php": {
+              "type": "-",
+              "size": 1637,
+              "lmtime": 1748136359015.7002,
+              "modified": false
+            },
+            "set_balance.php": {
+              "type": "-",
+              "size": 110,
+              "lmtime": 0,
+              "modified": false
+            },
+            "set_data.php": {
+              "type": "-",
+              "size": 110,
+              "lmtime": 0,
+              "modified": false
+            },
+            "successbizum.php": {
+              "type": "-",
+              "size": 603,
+              "lmtime": 0,
+              "modified": false
+            },
+            "transactions.php": {
+              "type": "-",
+              "size": 798,
+              "lmtime": 1748136359015.7002,
+              "modified": false
+            },
+            "useroptions copy.php": {
+              "type": "-",
+              "size": 1243,
+              "lmtime": 0,
+              "modified": false
+            },
+            "useroptions.php": {
+              "type": "-",
+              "size": 770,
+              "lmtime": 0,
+              "modified": false
+            },
+            "validateaccount.php": {
+              "type": "-",
+              "size": 1016,
+              "lmtime": 0,
+              "modified": false
+            },
+            "validateaccountresult.php": {
+              "type": "-",
+              "size": 626,
+              "lmtime": 0,
+              "modified": false
+            }
+          },
           "js": {
             "balance.js": {
               "type": "-",
@@ -35,20 +175,32 @@
             },
             "bizum.js": {
               "type": "-",
-              "size": 3231,
-              "lmtime": 1748036964579.142,
+              "size": 2751,
+              "lmtime": 1748136359009.0164,
+              "modified": false
+            },
+            "changepassword.js": {
+              "type": "-",
+              "size": 1550,
+              "lmtime": 1748136359010.257,
+              "modified": false
+            },
+            "contacts.js": {
+              "type": "-",
+              "size": 1681,
+              "lmtime": 1748136359010.257,
               "modified": false
             },
             "login.js": {
               "type": "-",
-              "size": 2813,
-              "lmtime": 1748036950229.101,
+              "size": 2594,
+              "lmtime": 1748136359010.257,
               "modified": false
             },
             "logout.js": {
               "type": "-",
-              "size": 2250,
-              "lmtime": 0,
+              "size": 967,
+              "lmtime": 1748136359011.3035,
               "modified": false
             },
             "passwordValidator copy.js": {
@@ -59,14 +211,20 @@
             },
             "passwordValidator.js": {
               "type": "-",
-              "size": 1692,
-              "lmtime": 0,
+              "size": 2240,
+              "lmtime": 1748136359011.3035,
               "modified": false
             },
             "register.js": {
               "type": "-",
-              "size": 2627,
-              "lmtime": 0,
+              "size": 2613,
+              "lmtime": 1748136359011.3035,
+              "modified": false
+            },
+            "transactions.js": {
+              "type": "-",
+              "size": 2242,
+              "lmtime": 1748136359011.3035,
               "modified": false
             },
             "validateaccount.js": {
@@ -87,20 +245,70 @@
         "tasks.txt": {
           "type": "-",
           "size": 648,
-          "lmtime": 0,
+          "lmtime": 1748136350714.0562,
           "modified": false
         },
-        "ws.mybizum.com": {},
+        "ws.mybizum.com": {
+          "com": {
+            "bizum": {
+              "clsBizum.php": {
+                "type": "-",
+                "size": 3618,
+                "lmtime": 1748136359015.7002,
+                "modified": false
+              }
+            },
+            "security": {
+              "UserManager.php": {
+                "type": "-",
+                "size": 6088,
+                "lmtime": 1748136359016.7024,
+                "modified": false
+              },
+              "block.php": {
+                "type": "-",
+                "size": 1045,
+                "lmtime": 0,
+                "modified": false
+              },
+              "blockchain.php": {
+                "type": "-",
+                "size": 1255,
+                "lmtime": 0,
+                "modified": false
+              },
+              "transaction.php": {
+                "type": "-",
+                "size": 470,
+                "lmtime": 0,
+                "modified": false
+              }
+            }
+          },
+          "index.html": {
+            "type": "-",
+            "size": 261,
+            "lmtime": 0,
+            "modified": false
+          },
+          "info.php": {
+            "type": "-",
+            "size": 25,
+            "lmtime": 0,
+            "modified": false
+          },
+          "mybizum.com": {},
+          "ws.php": {
+            "type": "-",
+            "size": 4626,
+            "lmtime": 1748136359016.7024,
+            "modified": false
+          }
+        },
         "xml.txt": {
           "type": "-",
-          "size": 834,
-          "lmtime": 0,
-          "modified": false
-        },
-        "db.sql": {
-          "type": "-",
-          "size": 52322,
-          "lmtime": 1748037629358.1106,
+          "size": 2325,
+          "lmtime": 1748136359016.7024,
           "modified": false
         }
       }
