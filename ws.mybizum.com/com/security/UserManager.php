@@ -29,8 +29,6 @@ class UserManager {
                 // $resultado = enviarCorreo($url, $destinatario, $asunto, $cuerpo, $adjunto);
                 
                 header('Content-Type: text/xml');
-
-                // Mostrar la respuesta XML
                 echo $result;
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
@@ -119,8 +117,6 @@ class UserManager {
                 // header('Location: ../../mybizum.com/pages/validateaccountresult.php');
                 // Establecer el encabezado para XML
                 header('Content-Type: text/xml');
-
-                // Mostrar la respuesta XML
                 echo $result;
                 
             } catch (PDOException $e) {
