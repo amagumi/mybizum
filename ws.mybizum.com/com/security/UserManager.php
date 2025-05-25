@@ -14,19 +14,19 @@ class UserManager {
         } else {
             try {
                 $result = $this->DBCommand->execute('sp_user_register', array($username, $name, $lastname, $password, $email));
-
-                $register_code = $this->DBCommand->execute('sp_wdev_get_registercode', array($username, 0));
-
-                $url = 'https://script.google.com/macros/s/AKfycbzHHL6pycrumpsogGSHrp1Kv88lWHB7agA71VIaEpSkTNPJWYNoo_3vtCN0_SJgx-nNdA/exec';
+                // if ($result == 0){
+                //     $this->getRegisterCode($username);
+                // }
+                // $url = 'https://script.google.com/macros/s/AKfycbzHHL6pycrumpsogGSHrp1Kv88lWHB7agA71VIaEpSkTNPJWYNoo_3vtCN0_SJgx-nNdA/exec';
                 
-                // Parámetros del correo electrónico
-                $destinatario = $email;
-                $asunto = 'Código de registro.';
-                $cuerpo = $name . ', su código de verificación es ' . $register_code;
-                $adjunto = null; 
+                // // Parámetros del correo electrónico
+                // $destinatario = $email;
+                // $asunto = 'Código de registro.';
+                // $cuerpo = $name . ', su código de verificación es ' . $register_code;
+                // $adjunto = null; 
                 
-                // Llamada a la función para enviar el correo
-                $resultado = enviarCorreo($url, $destinatario, $asunto, $cuerpo, $adjunto);
+                // // Llamada a la función para enviar el correo
+                // $resultado = enviarCorreo($url, $destinatario, $asunto, $cuerpo, $adjunto);
                 
                 header('Content-Type: text/xml');
 
@@ -36,6 +36,12 @@ class UserManager {
                 echo 'Error: ' . $e->getMessage();
             }
         }
+    }
+
+
+    public function getRegisterCode($username){
+        $result = $this->DBCommand->execute('sp_wdev_get_registercode', [$username]);
+        return $result;
     }
 
 
@@ -82,7 +88,6 @@ class UserManager {
             echo '<response><num_error>2</num_error><message>' . htmlspecialchars($e->getMessage()) . '</message></response>';
         }
     }
-
 
 
     public function changePassword($username, $password, $newpassword) {

@@ -19,7 +19,7 @@ function login(action, username, name, lastname, password, email) {
         let response = AJAX.xml;  // Aquí deberías tener el XML que devuelve el servidor
 
         // Mostrar la respuesta completa en la consola para depuración
-        console.log("Respuesta del servidor:", response);
+        // console.log("Respuesta del servidor:", response);
 
         // Parsear el XML de la respuesta
         let parser = new DOMParser();
@@ -37,7 +37,7 @@ function login(action, username, name, lastname, password, email) {
                 document.cookie = "balance=" + encodeURIComponent(balance) + "; path=/";
                 
                 document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
-                window.location.href = "../pages/mainmenu.php"; // Cambia la URL según lo que necesites
+                window.location.href = "../pages/validateaccount.php"; // Cambia la URL según lo que necesites
             } else {
                 // Si el login falla, mostrar un mensaje de error
                 alert("Registro fallido. Verifica las credenciales.");
