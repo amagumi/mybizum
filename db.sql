@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [PP_DDBB]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Database [PP_DDBB]    Script Date: 26/05/2025 23:44:54 ******/
 CREATE DATABASE [PP_DDBB]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [PP_DDBB] SET QUERY_STORE = OFF
 GO
 USE [PP_DDBB]
 GO
-/****** Object:  UserDefinedFunction [dbo].[CalculateHash]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[CalculateHash]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -107,7 +107,7 @@ BEGIN
     RETURN @Hash;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_compare_passwords]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_compare_passwords]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -146,7 +146,7 @@ BEGIN
     RETURN -1;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_compare_soundex]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_compare_soundex]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,7 +191,7 @@ BEGIN
     RETURN @RESULT;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_generate_ssid]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_generate_ssid]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -208,7 +208,7 @@ BEGIN
     return @ssid
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_mail_exists]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_mail_exists]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +224,7 @@ BEGIN
     RETURN @Exists;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_mail_isvalid]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_mail_isvalid]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,7 +252,7 @@ BEGIN
     RETURN @ValidEmail;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_pwd_checkpolicy]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_pwd_checkpolicy]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -291,7 +291,7 @@ BEGIN
     RETURN @errorPass;
 END
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_pwd_isvalid]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_pwd_isvalid]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -316,7 +316,7 @@ BEGIN
     RETURN @IsValid;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_user_exists]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_user_exists]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -332,7 +332,7 @@ BEGIN
     RETURN @Exists;
 END;
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_user_state]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_user_state]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -354,7 +354,7 @@ BEGIN
     RETURN @userState;
 END;
 GO
-/****** Object:  View [dbo].[v_guid]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  View [dbo].[v_guid]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -364,7 +364,7 @@ create view [dbo].[v_guid]
 AS
     select newid() guid
 GO
-/****** Object:  Table [dbo].[Blocks]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[Blocks]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -380,7 +380,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[BlockTransactions]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[BlockTransactions]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -395,7 +395,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PWD_HISTORY]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[PWD_HISTORY]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -412,7 +412,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[STATUS]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[STATUS]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -426,7 +426,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Transactions]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[Transactions]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -442,7 +442,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USER_CONNECTIONS]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[USER_CONNECTIONS]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -459,7 +459,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USER_CONNECTIONS_HISTORY]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[USER_CONNECTIONS_HISTORY]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -476,7 +476,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USER_ERRORS]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[USER_ERRORS]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -491,7 +491,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USERS]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  Table [dbo].[USERS]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -553,7 +553,7 @@ GO
 ALTER TABLE [dbo].[USERS]  WITH CHECK ADD FOREIGN KEY([STATUS])
 REFERENCES [dbo].[STATUS] ([STATUS])
 GO
-/****** Object:  StoredProcedure [dbo].[AddBlock]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[AddBlock]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -577,7 +577,7 @@ BEGIN
     SELECT @BlockID AS BlockID;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[AddTransaction]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[AddTransaction]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -603,7 +603,35 @@ BEGIN
     SELECT @TransactionID AS TransactionID;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[GetLastBlock]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[AddTransaction2]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[AddTransaction2]
+    @ssid NVARCHAR(100),
+    @Receiver NVARCHAR(50),
+    @Amount DECIMAL(18, 2),
+    @BlockID INT
+AS
+BEGIN
+    SET NOCOUNT ON;  -- ✅ Esto evita que se devuelva "N rows affected"
+	DECLARE @Sender NVARCHAR(100);
+	SELECT @Sender = username FROM USER_CONNECTIONS WHERE CONNECTION_ID = @ssid;
+
+    INSERT INTO Transactions (Sender, Receiver, Amount)
+    VALUES (@Sender, @Receiver, @Amount);
+
+    DECLARE @TransactionID INT = SCOPE_IDENTITY();
+
+    INSERT INTO BlockTransactions (BlockID, TransactionID)
+    VALUES (@BlockID, @TransactionID);
+
+    -- ✅ Opcional: si esperas recibir el ID en PHP, añade este SELECT
+    SELECT @TransactionID AS TransactionID;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[GetLastBlock]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -615,7 +643,7 @@ BEGIN
     SELECT MAX(BlockID) AS LastBlockID FROM dbo.Blocks;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_check_balance]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_check_balance]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -641,7 +669,7 @@ BEGIN
     FROM USERS
     WHERE username = @USERNAME;
 
-    IF (@BALANCE < @AMOUNT)
+    IF (@BALANCE IS NULL OR @BALANCE < @AMOUNT)
     BEGIN
         SET @ret = 201;
         GOTO ExitProc;
@@ -666,7 +694,63 @@ EXEC sp_check_balance
 
 */
 GO
-/****** Object:  StoredProcedure [dbo].[sp_create_bizum]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_check_balance2]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+--exec sp_check_balance2 'ca528645-69f3-448d-8cd3-466f27a83fd8',10
+-- Procedimiento almacenado corregido
+CREATE PROCEDURE [dbo].[sp_check_balance2]
+    @SSID UNIQUEIDENTIFIER,
+    @AMOUNT DECIMAL(10,2)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @ret INT = -1;
+    DECLARE @BALANCE DECIMAL(20,2);
+    DECLARE @ResponseXML XML;
+    DECLARE @USERNAME NVARCHAR(100);
+
+    -- Buscar el nombre de usuario asociado al SSID (GUID)
+    SELECT @USERNAME = USERNAME 
+    FROM USER_CONNECTIONS 
+    WHERE CONNECTION_ID = @SSID;
+
+    -- Verificar si el usuario existe usando una función
+    IF (dbo.fn_user_exists(@USERNAME) = 0)
+    BEGIN
+        SET @ret = 501;
+        GOTO ExitProc;
+    END
+
+    -- Obtener el balance del usuario
+    SELECT @BALANCE = BALANCE
+    FROM USERS
+    WHERE USERNAME = @USERNAME;
+
+    -- Verificar si el balance es suficiente
+    IF (@BALANCE IS NULL OR @BALANCE < @AMOUNT)
+    BEGIN
+        SET @ret = 201;
+        GOTO ExitProc;
+    END
+
+    -- Éxito
+    SET @ret = 0;
+
+ExitProc:
+    -- Llama al procedimiento que devuelve el XML de error y luego extrae el código de error
+    EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT;
+
+    -- Devuelve solo el número de error como resultado final
+    SELECT @ResponseXML;
+	--.value('(/ws_response/head/errors/errors/error/num_error)[1]', 'INT') AS num_error;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_create_bizum]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -722,8 +806,8 @@ BEGIN
         WHERE USERNAME = @RECEIVER;
 
         -- 6. Registrar en tabla de transacciones
-        INSERT INTO Transactions(sender, receiver, amount)
-        VALUES (@SENDER, @RECEIVER, @AMOUNT);
+        --INSERT INTO Transactions(sender, receiver, amount)
+        --VALUES (@SENDER, @RECEIVER, @AMOUNT);
 
         COMMIT;
         SET @ret = 0; -- OK
@@ -765,7 +849,109 @@ exec sp_create_bizum
     @AMOUNT = 1;
 	*/
 GO
-/****** Object:  StoredProcedure [dbo].[sp_create_xml_from_url]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_create_bizum2]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- exec sp_create_bizum2 'ca528645-69f3-448d-8cd3-466f27a83fd8','lily',1
+
+CREATE  PROCEDURE [dbo].[sp_create_bizum2]
+    @ssid NVARCHAR(100),
+    @RECEIVER NVARCHAR(25),
+    @AMOUNT DECIMAL(10,2)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @ret INT = 0;
+    DECLARE @XML_RESPONSE XML;
+	DECLARE @SENDER NVARCHAR(100);
+
+	SELECT @SENDER = username FROM USER_CONNECTIONS WHERE CONNECTION_ID = @ssid;
+	print @sender;
+    -- 1. Validación básica
+    IF NOT EXISTS (SELECT 1 FROM USERS WHERE USERNAME = @SENDER)
+    BEGIN
+        SET @ret = 501; -- Usuario emisor no existe
+        GOTO ExitProc;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM USERS WHERE USERNAME = @RECEIVER)
+    BEGIN
+        SET @ret = 501; -- Usuario receptor no existe
+        GOTO ExitProc;
+    END
+
+    -- 2. Verificar saldo
+	
+    DECLARE @BALANCE DECIMAL(10,2);
+    SELECT @BALANCE = balance FROM USERS WHERE USERNAME = @SENDER;
+
+    IF @BALANCE < @AMOUNT
+    BEGIN
+        SET @ret = 400; -- Saldo insuficiente
+        GOTO ExitProc;
+    END
+	
+    -- 3. Transacción atómica
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- 4. Descontar saldo emisor
+        UPDATE USERS
+        SET balance = balance - @AMOUNT
+        WHERE USERNAME = @SENDER;
+
+        -- 5. Aumentar saldo receptor
+        UPDATE USERS
+        SET balance = balance + @AMOUNT
+        WHERE USERNAME = @RECEIVER;
+
+        -- 6. Registrar en tabla de transacciones
+        --INSERT INTO Transactions(sender, receiver, amount)
+        --VALUES (@SENDER, @RECEIVER, @AMOUNT);
+
+        COMMIT;
+        SET @ret = 0; -- OK
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+        SET @ret = -1; -- Error desconocido
+    END CATCH
+
+ExitProc:
+	DECLARE @bizumData XML = NULL;
+
+	IF (@ret = 0)
+	BEGIN
+		SELECT @bizumData = (
+			SELECT 
+				@SENDER AS sender,
+				@RECEIVER AS receiver,
+				balance
+			FROM Users
+			WHERE username = @SENDER
+			FOR XML PATH('user'), TYPE
+		);
+	END
+
+	EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @XML_RESPONSE OUTPUT, @UserData = @bizumData;
+	SELECT @XML_RESPONSE;
+
+END;
+
+
+
+/*
+exec sp_create_bizum
+    @SENDER = 'umi', 
+	@RECEIVER = 'asier',
+    @AMOUNT = 1;
+	*/
+GO
+/****** Object:  StoredProcedure [dbo].[sp_create_xml_from_url]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -787,7 +973,7 @@ BEGIN
 
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_get_balance]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_get_balance]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -806,13 +992,12 @@ END
 
 /*
 
-EXEC sp_check_balance 
-    @USERNAME = 'umi', 
-    @AMOUNT = 100;
+EXEC sp_get_balance 
+    @USERNAME = 'umi';
 
 */
 GO
-/****** Object:  StoredProcedure [dbo].[sp_get_procedure_params_JSON]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_get_procedure_params_JSON]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -849,7 +1034,103 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_connections]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_get_transactions]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[sp_get_transactions]
+    @username NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @XML_RESPONSE XML;
+    DECLARE @ret INT = -1;
+    DECLARE @transactionsData XML = NULL;
+
+    IF EXISTS (
+        SELECT 1 
+        FROM transactions 
+        WHERE sender = @username OR receiver = @username
+    )
+    BEGIN
+        SELECT @transactionsData = (
+            SELECT 
+                sender,
+                receiver,
+                amount
+            FROM transactions
+            WHERE sender = @username OR receiver = @username
+            FOR XML PATH('transaction'), ROOT('transactions'), TYPE
+        );
+        SET @ret = 0;
+    END
+    ELSE
+    BEGIN
+        SET @ret = 404;
+    END
+
+    EXEC sp_xml_error_message 
+        @RETURN = @ret, 
+        @XmlResponse = @XML_RESPONSE OUTPUT, 
+        @UserData = @transactionsData;
+
+    SELECT @XML_RESPONSE;
+END;
+
+-- exec sp_get_transactions
+GO
+/****** Object:  StoredProcedure [dbo].[sp_get_transactions2]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE   PROCEDURE [dbo].[sp_get_transactions2]
+    @ssid UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @ret INT = -1;
+    DECLARE @USERNAME NVARCHAR(100);
+    DECLARE @ResponseXML XML;
+
+    -- Obtener el username desde USER_CONNECTIONS
+    SELECT @USERNAME = USERNAME FROM USER_CONNECTIONS WHERE CONNECTION_ID = @ssid;
+
+    IF @USERNAME IS NULL OR dbo.fn_user_exists(@USERNAME) = 0
+    BEGIN
+        SET @ret = 501; -- Usuario no válido
+        GOTO ExitProc;
+    END
+
+    DECLARE @TransactionsXML XML;
+
+    -- Obtener transacciones donde el usuario es emisor o receptor
+    SELECT @TransactionsXML = (
+        SELECT
+            sender,
+            receiver,
+            amount
+        FROM TRANSACTIONS
+        WHERE sender = @USERNAME OR receiver = @USERNAME
+        FOR XML PATH('transaction'), ROOT('transactions'), TYPE
+    );
+
+    SET @ret = 0;
+
+ExitProc:
+    EXEC sp_xml_error_message
+        @RETURN = @ret,
+        @XmlResponse = @ResponseXML OUTPUT,
+        @UserData = @TransactionsXML;
+
+    SELECT @ResponseXML;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_list_connections]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -892,7 +1173,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_errors]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_errors]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -934,7 +1215,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_historic_connections]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_historic_connections]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -976,7 +1257,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_historic_user_connections]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_historic_user_connections]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1024,7 +1305,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_system_status]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_system_status]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1071,49 +1352,128 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_users]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_transactions]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE   PROCEDURE [dbo].[sp_list_transactions]
+AS
+BEGIN
+    SET NOCOUNT ON;
 
--- Procedimiento almacenado para listar usuarios
+    DECLARE @XML_RESPONSE XML;
+    DECLARE @ret INT = -1;
+    DECLARE @transactionsData XML = NULL;
+
+    IF EXISTS (SELECT 1 FROM transactions)
+    BEGIN
+        SELECT @transactionsData = (
+            SELECT 
+                sender,
+                receiver,
+                amount
+            FROM transactions
+            FOR XML PATH('transaction'), ROOT('transactions'), TYPE
+        );
+        SET @ret = 0; -- Éxito
+    END
+    ELSE
+    BEGIN
+        SET @ret = 404; -- Sin transacciones
+    END
+
+    EXEC sp_xml_error_message 
+        @RETURN = @ret, 
+        @XmlResponse = @XML_RESPONSE OUTPUT, 
+        @UserData = @transactionsData;
+
+    SELECT @XML_RESPONSE;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_list_transactions2]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[sp_list_transactions2]
+    @SSID UNIQUEIDENTIFIER
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @XML_RESPONSE XML;
+    DECLARE @ret INT = -1;
+    DECLARE @transactionsData XML = NULL;
+	DECLARE @SENDER NVARCHAR(100);
+	SELECT @SENDER = username FROM USER_CONNECTIONS WHERE CONNECTION_ID = @ssid;
+
+    IF EXISTS (SELECT 1 FROM transactions)
+    BEGIN
+        SELECT @transactionsData = (
+            SELECT 
+                @SENDER AS sender,
+                receiver,
+                amount
+            FROM transactions
+            FOR XML PATH('transaction'), ROOT('transactions'), TYPE
+        );
+        SET @ret = 0; -- Éxito
+    END
+    ELSE
+    BEGIN
+        SET @ret = 404; -- Sin transacciones
+    END
+
+    EXEC sp_xml_error_message 
+        @RETURN = @ret, 
+        @XmlResponse = @XML_RESPONSE OUTPUT, 
+        @UserData = @transactionsData;
+
+    SELECT @XML_RESPONSE;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_list_users]    Script Date: 26/05/2025 23:44:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE PROCEDURE [dbo].[sp_list_users]
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @ret INT;
-    SET @ret = -1;
+    DECLARE @XML_RESPONSE XML;
+    DECLARE @ret INT = -1;
+    DECLARE @contactsData XML = NULL;
 
-    DECLARE @XMLFlag XML;
-
-    -- Verificar si hay datos en el historial de conexiones
     IF EXISTS (SELECT 1 FROM USERS)
     BEGIN
-        -- Si hay datos, convertir el conjunto de resultados a XML
-        SET @XMLFlag = (
-            SELECT USERNAME FROM USERS
-            FOR XML PATH('Usuarios'), ROOT('Usuarios'), TYPE
+        SELECT @contactsData = (
+            SELECT 
+                username,
+                name
+            FROM USERS
+            FOR XML PATH('user'), ROOT('users'), TYPE
         );
+        SET @ret = 0; -- Éxito
     END
     ELSE
     BEGIN
-        SET @ret = 505; -- Indicar que hubo resultados
+        SET @ret = 404; -- Sin usuarios
     END
-    
-    IF @ret <> -1
-    BEGIN
-        ExitProc:
-        DECLARE @ResponseXML XML;
-        EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT;
-        SELECT @ResponseXML;
-    END
-    ELSE
-        SELECT @XMLFlag;
+
+    EXEC sp_xml_error_message 
+        @RETURN = @ret, 
+        @XmlResponse = @XML_RESPONSE OUTPUT, 
+        @UserData = @contactsData;
+
+    SELECT @XML_RESPONSE;
 END;
+
+exec sp_list_users
 GO
-/****** Object:  StoredProcedure [dbo].[sp_list_users2]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_list_users2]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1175,7 +1535,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_accountvalidate]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_accountvalidate]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1239,8 +1599,11 @@ ExitProc:
     EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT;
     SELECT @ResponseXML;
 END;
+
+
+-- exec sp_user_accountvalidate @USERNAME = 'catetiya', @REGISTER_CODE = 68116
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_change_password]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_change_password]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1297,7 +1660,7 @@ BEGIN
     SELECT @ResponseXML;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_get_accountdata]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_get_accountdata]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1325,7 +1688,7 @@ BEGIN
         SELECT @XMLFlag;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_login]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_login]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1341,6 +1704,8 @@ BEGIN
     DECLARE @XML_RESPONSE XML;
     DECLARE @LOGIN_STATUS BIT;
     DECLARE @ret INT;
+	DECLARE @ID NVARCHAR(100);
+
     SET @ret = -1;
 
     -- Verificar si el usuario está actualmente conectado
@@ -1375,6 +1740,9 @@ BEGIN
 
                 -- Crear una nueva conexión para el usuario
                 EXEC sp_wdev_user_create_user_connection @USERNAME, @CONNECTION_ID, @ret OUTPUT;
+				SELECT @ID = CONNECTION_ID FROM USER_CONNECTIONS;
+	
+
             END
         END
     END
@@ -1398,7 +1766,8 @@ BEGIN
 				register_code,
 				login_status,
 				rol_user,
-				balance
+				balance,
+				@ID AS ssid
 			FROM Users
 			WHERE username = @USERNAME
 			FOR XML PATH('user'), TYPE
@@ -1409,7 +1778,7 @@ BEGIN
 	SELECT @XML_RESPONSE;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_logout]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_logout]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1431,7 +1800,7 @@ BEGIN
     -- Comprueba si el usuario está conectado
     EXEC sp_wdev_check_user_connection @USERNAME, @USER_ID OUTPUT, @DATE_CONNECTED OUTPUT, @ret OUTPUT;
 
-    IF @ret = 100
+    IF @ret = 0
     BEGIN
         -- Insertar en USER_CONNECTIONS_HISTORY antes de eliminar
         EXEC sp_wdev_insert_user_connection_history 
@@ -1440,16 +1809,15 @@ BEGIN
             @DATE_CONNECTED, 
             @DATE_DISCONNECTED -- fecha de desconexión
 
-
         -- Eliminar de USER_CONNECTIONS
         DELETE FROM USER_CONNECTIONS WHERE USERNAME = @USERNAME;
 
-        IF @@ROWCOUNT = 1
+        --
         BEGIN
             -- Actualizar estado de conexión en USERS
             EXEC sp_wdev_update_user_login_status_0 @USERNAME;
 
-            SET @ret = 0; -- Éxito
+            SET @ret = 100; -- Éxito
         END
     END
 
@@ -1458,13 +1826,11 @@ BEGIN
     SELECT @ResponseXML;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_register]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_register]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
-
 CREATE PROCEDURE [dbo].[sp_user_register]
     @USERNAME NVARCHAR(25),
     @NAME NVARCHAR(25),
@@ -1473,8 +1839,9 @@ CREATE PROCEDURE [dbo].[sp_user_register]
     @EMAIL NVARCHAR(30)
 AS 
 BEGIN
+	
     SET NOCOUNT ON;
-
+	DECLARE @REGISTER_CODE INT;
     DECLARE @ret INT;
     SET @ret = -1;
 
@@ -1515,12 +1882,13 @@ BEGIN
 
                     IF @@ROWCOUNT > 0
                     BEGIN
-                        SET @ret = 0  
+                        SET @ret = 0;
+						EXEC @REGISTER_CODE = sp_wdev_get_registercode @USERNAME
                         GOTO ExitProc;
                     END
                     ELSE
                     BEGIN
-                        SET @ret = -1  
+                        SET @ret = -1;
                         GOTO ExitProc;
                     END  
                 END
@@ -1530,17 +1898,33 @@ BEGIN
 
     ExitProc:
     DECLARE @ResponseXML XML;
-    EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT;
+    DECLARE @UserData XML = NULL;
+
+    -- Incluir datos del usuario si se registró correctamente
+    IF (@ret = 0)
+    BEGIN
+        SET @UserData = (
+            SELECT 
+                @USERNAME AS username,
+                @NAME AS name,
+                @LASTNAME AS lastname,
+                @PASSWORD AS password,
+                @EMAIL AS email,
+				@REGISTER_CODE AS register_code
+            FOR XML PATH('user'), TYPE
+        );
+    END
+
+    EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT, @UserData = @UserData;
     SELECT @ResponseXML;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_user_register_check_pwd]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_user_register_check_pwd]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
-CREATE   PROCEDURE [dbo].[sp_user_register_check_pwd](@PASSWORD NVARCHAR(100))
+CREATE PROCEDURE [dbo].[sp_user_register_check_pwd](@PASSWORD NVARCHAR(100))
 AS
 BEGIN
     DECLARE @ret INT = 0;
@@ -1564,13 +1948,13 @@ BEGIN
         RETURN @ret;
     END
 
-    -- Si pasa todas las validaciones, devolver éxito (código 0)
-    EXEC sp_xml_error_message 0, @XmlResponse OUTPUT;
+    -- Si pasa todas las validaciones, devolver éxito con código 1000
+    EXEC sp_xml_error_message 1000, @XmlResponse OUTPUT;
     SELECT @XmlResponse;
-    RETURN 0;
+    RETURN 1000;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_check_user_connection]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_check_user_connection]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1598,7 +1982,7 @@ BEGIN
         FROM USER_CONNECTIONS 
         WHERE USERNAME = @USERNAME;
 
-        SET @ret = 100; -- Éxito
+        SET @ret = 0; -- Éxito
     END
     ELSE
     BEGIN
@@ -1606,7 +1990,7 @@ BEGIN
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_deletealldata]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_deletealldata]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1627,60 +2011,36 @@ BEGIN
     
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_get_registercode]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_get_registercode]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROCEDURE [dbo].[sp_wdev_get_registercode]
-    @USERNAME NVARCHAR(25),
-    @REGISTER_CODE INT OUTPUT -- Parámetro de salida para el código de registro
+    @USERNAME NVARCHAR(25)
 AS
 BEGIN
+	DECLARE @REGISTER_CODE INT;
+
     SET NOCOUNT ON;
 
     DECLARE @ret INT;
     SET @ret = -1;
 
     -- Buscar el código de registro para el usuario dado
-    SELECT @REGISTER_CODE = REGISTER_CODE
-    FROM USERS
-    WHERE USERNAME = @USERNAME;
+	SELECT @REGISTER_CODE = register_code FROM USERS
+	WHERE USERNAME = @USERNAME;
 
-    -- Verificar si se encontró el código de registro
-    IF @REGISTER_CODE IS NOT NULL
-    BEGIN
-        -- Si se encontró, establecer el código de retorno en 0 (éxito)
-        SET @ret = 0;
-    END
-    ELSE
-    BEGIN
-        -- Si no se encontró, establecer el código de retorno en 404 (no encontrado)
-        SET @ret = 404;
-    END
 
-    -- Obtener el objeto XML de respuesta para el código de error
-    DECLARE @ResponseXML XML;
-    EXEC sp_xml_error_message @RETURN = @ret, @XmlResponse = @ResponseXML OUTPUT;
 
-    -- Verificar si se encontró el código de registro
-    IF @ret = 0
-    BEGIN
-        -- Si todo está bien, incluir el código de registro en el XML de respuesta
-        SELECT @REGISTER_CODE;
-    END
-
-    -- Devolver el objeto XML de respuesta
-    -- SELECT @ResponseXML;
+RETURN @REGISTER_CODE;
 END;
 
 
-
-
--- EXEC sp_get_registercode @USERNAME="pauallende04",@REGISTER_CODE=0
+-- EXEC sp_wdev_get_registercode @USERNAME="asier"
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_insert_user_connection_history]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_insert_user_connection_history]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1698,7 +2058,7 @@ BEGIN
     VALUES (@USER_ID, @USERNAME, @DATE_CONNECTED, @DATE_DISCONNECTED);
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_update_user_login_status_0]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_update_user_login_status_0]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1711,7 +2071,7 @@ BEGIN
     UPDATE USERS SET LOGIN_STATUS = 0 WHERE USERNAME = @USERNAME;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_user_check_existence]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_user_check_existence]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1742,7 +2102,7 @@ BEGIN
     END
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_user_create_user_connection]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_user_create_user_connection]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1773,7 +2133,7 @@ BEGIN
     END
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_user_get_login_status]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_user_get_login_status]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1801,7 +2161,7 @@ BEGIN
     END
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_user_insert]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_user_insert]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1828,7 +2188,7 @@ DECLARE @REGISTER_CODE INT;
 
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_wdev_user_update_password_info]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_wdev_user_update_password_info]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1873,7 +2233,7 @@ BEGIN
     SET @ret = 0;
 END;
 GO
-/****** Object:  StoredProcedure [dbo].[sp_xml_error_message]    Script Date: 23/05/2025 23:59:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_xml_error_message]    Script Date: 26/05/2025 23:44:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1886,11 +2246,11 @@ AS
 BEGIN
     DECLARE @SERVER_ID NVARCHAR(200) = @@SERVERNAME;
     DECLARE @SERVER_TIME NVARCHAR(20) = CONVERT(NVARCHAR(20), GETDATE(), 120);
-    DECLARE @EXECUTION_TIME NVARCHAR(20) = '0.00'; -- Modificar si se mide realmente
-    DECLARE @URL NVARCHAR(200) = 'http://ws.mybizum.com/'; -- Reemplazar por valor real si se necesita dinámico
-    DECLARE @WEBMETHOD_NAME NVARCHAR(100) = 'MyWebMethod'; -- Reemplazar por nombre real
-    DECLARE @PARAM_NAME NVARCHAR(100) = 'param1';
-    DECLARE @PARAM_VALUE NVARCHAR(100) = 'value1';
+    DECLARE @EXECUTION_TIME NVARCHAR(20) = '0.00'; 
+    DECLARE @URL NVARCHAR(200) = 'http://ws.mybizum.com/'; 
+    DECLARE @WEBMETHOD_NAME NVARCHAR(100) = 'MyWebMethod'; 
+    DECLARE @PARAM_NAME NVARCHAR(100) = 'param';
+    DECLARE @PARAM_VALUE NVARCHAR(100) = 'value';
 
     DECLARE @ERROR_CODE INT = @RETURN;
     DECLARE @ERROR_MESSAGE NVARCHAR(200);
@@ -1904,33 +2264,33 @@ BEGIN
 
     -- Construir XML final con estructura solicitada
     SET @XmlResponse = (
-        SELECT
-            @SERVER_ID AS 'head/server_id',
-            @SERVER_TIME AS 'head/server_time',
-            @EXECUTION_TIME AS 'head/execution_time',
-            @URL AS 'head/url',
-            @WEBMETHOD_NAME AS 'head/webmethod/name',
-            (
-                SELECT
-                    @PARAM_NAME AS 'name',
-                    @PARAM_VALUE AS 'value'
-                FOR XML PATH('parameter'), ROOT('parameters'), TYPE
-            ) AS 'head/webmethod/parameters',
-            (
-                SELECT
-                    @ERROR_CODE AS 'num_error',
-                    @ERROR_MESSAGE AS 'message_error',
-                    @SEVERITY AS 'severity',
-                    @USER_MESSAGE AS 'user_message'
-                FOR XML PATH('error'), ROOT('errors'), TYPE
-            ) AS 'head/errors',
-            (
-                SELECT
-                    ISNULL(@UserData.query('.'), '') AS '*'
-                FOR XML PATH('response_data'), TYPE
-            )
-        FOR XML PATH('ws_response'), TYPE
-    );
+    SELECT
+        @SERVER_ID AS 'head/server_id',
+        @SERVER_TIME AS 'head/server_time',
+        @EXECUTION_TIME AS 'head/execution_time',
+        @URL AS 'head/url',
+        @WEBMETHOD_NAME AS 'head/webmethod/name',
+        (
+            SELECT
+                @PARAM_NAME AS 'name',
+                @PARAM_VALUE AS 'value'
+            FOR XML PATH('parameter'), TYPE
+        ) AS 'head/webmethod/parameters',
+        (
+            SELECT
+                @ERROR_CODE AS 'num_error',
+                @ERROR_MESSAGE AS 'message_error',
+                @SEVERITY AS 'severity',
+                @USER_MESSAGE AS 'user_message'
+            FOR XML PATH('error'), TYPE
+        ) AS 'head/errors',
+        (
+            SELECT
+                ISNULL(@UserData.query('.'), '') AS '*'
+            FOR XML PATH('response_data'), TYPE
+        )
+    FOR XML PATH('ws_response'), TYPE
+);
 END
 GO
 USE [master]

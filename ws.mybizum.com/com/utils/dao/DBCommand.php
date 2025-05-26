@@ -21,13 +21,19 @@ class DBCommand {
         }
     
         $stmt->execute();
+
+        if ($stmt->columnCount() > 0){
+            $result = $stmt->fetchColumn();
+            return $result;
+        }
+        return;
     
         // Fetch the result as a string (XML)
-        $result = $stmt->fetchColumn();
+        // $result = $stmt->fetchColumn();
 
     
         // No es necesario verificar si es XML aquí
-        return $result;
+        // return $result;
     }
 
     private function isXML($string) {

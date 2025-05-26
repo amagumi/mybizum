@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Login</title>
+    <title>Iniciar sesión</title>
     <style>
         /* Reutilizamos el estilo anterior */
     </style>
@@ -19,21 +19,21 @@ session_start();
 
 
 <div class="container">
-    <h2>Login</h2>
+    <h2>Iniciar sesión</h2>
     <form action="action" method="GET" id="loginform"> 
         <input type="hidden" id="action" name="action" value="login">
         
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Usuario</label>
             <input type="text" id="username" name="username" required>
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required>
         </div>
 
-        <button type="submit" value="login">Log In</button>
+        <button type="submit" value="login">Entrar</button>
     </form>
 </div>
 

@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Success</title>
+    <title>Enviar Bizum</title>
     <style>
         /* Reutilizamos el estilo anterior */
     </style>
@@ -19,10 +19,10 @@ session_start();
 
 
 <div class="container">
-    <h2>success</h2>
+    <h2>Bizum enviado</h2>
     <div class="button-container-vertical">
-        <p> éxito </p>
-        <button onclick="window.location.href='mainmenu.php'">menu principal</button>
+        <p>Volver al menú principal</p>
+        <button onclick="window.location.href='mainmenu.php'">Volver</button>
     </div>
 </div>
 

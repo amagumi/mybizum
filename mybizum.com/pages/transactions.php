@@ -4,7 +4,11 @@ $loggedUser = $_SESSION['username'] ?? null;
 ?>
 <script>
   const loggedUser = "<?php echo htmlspecialchars($loggedUser); ?>";
+    const sender = sessionStorage.getItem('ssid');
+
 </script>
+
+
 
 <!DOCTYPE html>
 <html lang="es">

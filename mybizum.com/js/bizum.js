@@ -3,21 +3,23 @@ document.getElementById("bizumform").addEventListener("submit", function (event)
     event.preventDefault();
 
     let action = document.getElementById("action").value;
+    let ssid = sessionStorage.getItem('ssid');
     let receiver = document.getElementById("receiver").value;  
     let amount = document.getElementById("amount").value;
 
-    if (sender === receiver){
+    if (ssid === receiver){
         alert("No te puedes enviar a ti mismo!.");
         return;
     }
+    console.log(ssid);
 
-    sendBizum(action, sender, receiver, amount);
+    sendBizum(action, ssid, receiver, amount);
 });
 
 
-function sendBizum(action, sender, receiver, amount) {
+function sendBizum(action, ssid, receiver, amount) {
     //console.log("Enviando Bizum...");
-    let url = "http://ws.mybizum.com:8080/ws.php?action=" + action + '&sender=' + sender + '&receiver=' + receiver + '&amount=' + amount;
+    let url = "http://ws.mybizum.com:8080/ws.php?action=" + action + '&ssid=' + ssid + '&receiver=' + receiver + '&amount=' + amount;
     AJAX = new clsAjax(url, null);
 
 
@@ -29,7 +31,7 @@ function sendBizum(action, sender, receiver, amount) {
         let response = AJAX.xml;  // Aquí deberías tener el XML que devuelve el servidor
 
         // Mostrar la respuesta completa en la consola para depuración
-        // console.log("Respuesta del servidor:", response);
+        console.log("Respuesta del servidor:", response);
 
 
         // Parsear el XML de la respuesta

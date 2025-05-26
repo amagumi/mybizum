@@ -6,6 +6,7 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
 
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,22 +15,22 @@ $balance = $_SESSION['balance'] ?? 'No disponible';
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/logout.js"></script>    
     <script src="../com/clsAjax.js"></script>
-    <title>Main Menu</title>
+    <title>Menú principal</title>
     
 </head>
 <body>
 
-<div> <p style="text-align: center">Welcome, <?php echo htmlspecialchars($username); ?></p>
+<div> <h3 style="text-align: center">Bienvenidx, <strong><?php echo htmlspecialchars($username); ?></strong></h3>
 <div class="container">
     <div class="button-container-vertical">
-        <p> Balance total: <?php echo htmlspecialchars($balance); ?></p>
+        <p> Balance total: <strong style="color:#6598ff;"><?php echo htmlspecialchars($balance); ?>€<strong></p>
     </div>
     <!-- <h2>User Options</h2> -->
     <div class="button-container-vertical">
-        <button onclick="window.location.href='bizum.php'">Bizum</button>
-        <button onclick="window.location.href='useroptions.php'">Options</button>
-        <button onclick="window.location.href='transactions.php'">History</button>
-        <button onclick="logout()">Logout</button>
+        <button onclick="window.location.href='bizum.php'">Enviar Bizum</button>
+        <button onclick="window.location.href='useroptions.php'">Opciones</button>
+        <button onclick="window.location.href='transactions.php'">Historial</button>
+        <button onclick="logout()">Cerrar Sesión</button>
 
     </div>
     

@@ -4,7 +4,7 @@ $loggedUser = $_SESSION['username'] ?? null;
 ?>
 
 <script>
-    const sender = "<?php echo htmlspecialchars($loggedUser); ?>";
+    const sender = sessionStorage.getItem('ssid');
 </script>
 
 
@@ -14,32 +14,32 @@ $loggedUser = $_SESSION['username'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Bizum</title>
+    <title>Enviar Bizum</title>
     
 </head>
 <body>
 
 <div class="container">
-    <h2>Send Bizum</h2>
+    <h2>Enviar Bizum</h2>
     <form action="action" id="bizumform"> 
         <input type="hidden" id="action" name="action" value="sendbizum">
         
         <div style="display: flex; flex-direction: row">
              <div class="form-group">
-                <label for="receiver">receiver</label>
-                <select id="receiver" name="receiver">
+                <label for="receiver">Destinatario</label>
+                <select style="margin:10px;padding:4px;border-radius:30px;border-color:#cdcdcd; " id="receiver" name="receiver">
                     <option disabled selected>Selecciona un contacto</option>
                 </select>
                 <!-- <input style="cursor: default; user-select: none; pointer-events: none;" type="text" id="receiver" name="receiver" readonly class="no-select" /> -->
             </div>
 
             <div class="form-group">
-                <label for="amount">amount</label>
+                <label for="amount">Cantidad</label>
                 <input type="number" id="amount" name="amount" step="0.01" required>
             </div>
         </div>
        
-        <button type="submit" value="sendbizum">send bizum</button>
+        <button type="submit" value="sendbizum">Enviar</button>
     </form>
 
   

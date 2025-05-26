@@ -34,7 +34,10 @@ function login(action, username, password) {
             if (numError === "0") {
                 let balanceElem = xmlDoc.getElementsByTagName("balance")[0];
                 let balance = balanceElem ? balanceElem.textContent : "0";
+                let ssid = xmlDoc.getElementsByTagName("ssid")[0].textContent;
 
+                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('ssid', ssid);
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", "../storedata/set_data.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-    <h1>Logout</h1>
+    <h1>Cerrando sesión</h1>
     <div class="button-container-vertical">
         <div>
             <p>Sesión cerrada con éxito. Redirigiendo...</p>

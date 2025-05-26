@@ -59,18 +59,8 @@ if (empty($action)) {
 // chuleta de manu
     echo "Ejemplo de uso: <br>";
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=login&username=umi&password=a' . '<br><br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=logout' . '<br>';
     echo 'http://ws.mybizum.com:8080/com/ws.php?action=register&username=pruebas&name=nomprova&lastname=provalast&password=123456&email=prueba@gmail.com&repassword=123456' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=changepass&username=admin&password=12354&newpassword=12345' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewcon' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewconhist' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=accvalidate&username=aure&code=84588' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=listusers&ssid=3464f0f6-1a35-4525-9667-c241e399ae42' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=balance&username=admin' . '<br><br>';
-    echo 'TRANSACCIONES:' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=sendbizum&sender=asier&receiver=umi&amount=10' . '<br>';
-    echo 'http://ws.mybizum.com:8080/com/ws.php?action=viewTransaction&username=admin' . '<br>';
-
+   
     return;
 } else {
     switch ($action) {
@@ -89,9 +79,6 @@ if (empty($action)) {
         case "viewcon":
             $dbManager->viewConnections();
             break;
-        case "viewconhist":
-            $dbManager->viewHistoricConnections();
-            break;
         case "accvalidate":
             $userManager->accountValidate($_GET['username'], $_GET['code']);
             break;
@@ -99,13 +86,13 @@ if (empty($action)) {
             $userManager->listusers();
             break;
         case "listtransactions":
-            $bizum->getTransactions();
+            $bizum->getTransactions($_GET['ssid']);
             break;
         case "checkpwd":
             $userManager->checkpwd($_GET['password']);       
             break;
         case "sendbizum":
-            $bizum->sendBizum($_GET['sender'], $_GET['receiver'], $_GET['amount']);    
+            $bizum->sendBizum($_GET['ssid'], $_GET['receiver'], $_GET['amount']);    
             break;
         default:
             echo "Acción no válida.";

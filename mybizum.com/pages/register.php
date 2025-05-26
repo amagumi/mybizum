@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="containerregister">
     <h2>Registration Form</h2>
     <form action="action" method="GET" id="registerform">
         <input type="hidden" id="action" name="action" value="register">

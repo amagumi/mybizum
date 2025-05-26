@@ -18,17 +18,17 @@ class bizum
     }
 
 
-    public function sendBizum($sender, $receiver, $amount) {
+    public function sendBizum($ssid, $receiver, $amount) {
         if ($amount > 0) {
-            $result = $this->checkBalance($sender, $amount);
+            // $result = $this->checkBalance($ssid, $amount);
             // echo $result;
             
-            if ($result == 0) {
+            // if ($result == 0) {
                 // echo "balance suficiente";
-                $this->__executeTransaction($sender, $receiver, $amount);
-            } else {
+                $this->__executeTransaction($ssid, $receiver, $amount);
+            // } else {
                 // echo "balance insuficiente o error (código: $result)";
-            }
+            
         } else {
             // Cantidad no válida
             echo "no se pueeee";
@@ -36,17 +36,17 @@ class bizum
     }
 
 
-    public function checkBalance($sender, $amount) {
-        $result = $this->DBCommand->execute('sp_check_balance', [$sender, $amount]);
+    public function checkBalance($ssid, $amount) {
+        $result = $this->DBCommand->execute('sp_check_balance2', [$ssid, $amount]);
         return $result;
     }
 
 
-    private function __executeTransaction($sender, $receiver, $amount){
+    private function __executeTransaction($ssid, $receiver, $amount){
         // echo "hola" . "<br><br>";
         $myBlockchain = new Blockchain();
         $lastblock = Block::read($this->DBCommand);
-        $transaction = new Transaction($sender, $receiver, $amount);
+        $transaction = new Transaction($ssid, $receiver, $amount);
 
         // var_dump($myBlockchain);
         // echo "<br><br>";
@@ -72,7 +72,7 @@ class bizum
         if ($myBlockchain->isChainValid()) {
             // echo "La cadena es correcta! ";
             
-            $this->__executeBizum($sender, $receiver, $amount);
+            $this->__executeBizum($ssid, $receiver, $amount);
             
             return;
         } else {
@@ -88,22 +88,23 @@ class bizum
     // }
     
 
-    private function __executeBizum($sender, $receiver, $amount){
+    private function __executeBizum($ssid, $receiver, $amount){
      
-        $result = $this->DBCommand->execute('sp_create_bizum', array($sender, $receiver, $amount));
+        $result = $this->DBCommand->execute('sp_create_bizum2', array($ssid, $receiver, $amount));
         header('Content-Type: text/xml');
         echo $result;
     }
 
  
-    public function getTransactions(){
+    public function getTransactions($ssid){
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+        // echo $ssid;
 
-        $username = $_SESSION['username'] ?? null;
+        // $username = $_SESSION['username'] ?? null;
 
-        if (!$username) {
+        if (!$ssid) {
             header('Content-Type: application/json');
             echo json_encode(['error' => 'No hay usuario logueado']);
             return;
@@ -111,7 +112,7 @@ class bizum
 
         try {
             // Pasamos $username como parámetro al stored procedure
-            $result = $this->DBCommand->execute('sp_get_transactions', array($username));
+            $result = $this->DBCommand->execute('sp_get_transactions2', array($ssid));
 
             header('Content-Type: text/xml');
             echo $result;
